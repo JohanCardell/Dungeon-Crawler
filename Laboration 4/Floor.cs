@@ -8,5 +8,6 @@ namespace Laboration_4
 {
     class Floor : DungeonTile,IPassable
     {
+        public Floor(int X, int Y, char symbol): base(X,Y, symbol) { }
     }
 }
