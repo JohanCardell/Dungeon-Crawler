@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace Laboration_4
 {
-    abstract class Object : GameAsset
+    interface IScorable
     {
-        protected Object(int X, int Y, char Symbol) : base(X,Y,Symbol) { } 
     }
 }
