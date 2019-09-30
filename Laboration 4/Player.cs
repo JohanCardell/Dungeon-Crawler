@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Laboration_4
 {
-    class Player:AbstractPlayer,IMoveabel
+    class Player:GameAsset,IMoveabel
     {
     }
 }
