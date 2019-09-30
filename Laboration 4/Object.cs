@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Laboration_4
 {
-    abstract class AbstractObject:AbstractGameAsset
+    abstract class Object:GameAsset
     {
     }
 }
