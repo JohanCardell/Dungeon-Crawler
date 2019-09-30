@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Laboration_4
 {
-    abstract class AbstractMap:AbstractGameAsset
+    abstract class DungeonTile:GameAsset
     {
     }
 }
