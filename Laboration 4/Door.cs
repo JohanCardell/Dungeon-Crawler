@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Laboration_4
 {
-    class Door:DungeonTile,IOpenable
-    {
-    }
+    //class Door:DungeonTile,IOpenable
+    //{
+    //    public Door(): base() { }
+    //}
 }
