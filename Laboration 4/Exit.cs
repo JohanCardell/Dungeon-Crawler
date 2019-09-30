@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Laboration_4
 {
-    abstract class Exit:AbstractMap,ILeaveable
+    abstract class Exit:DungeonTile,ILeaveable
     {
     }
 }

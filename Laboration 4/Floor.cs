@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Laboration_4
 {
-    class Floor : AbstractMap,IPassable
+    class Floor : DungeonTile,IPassable
     {
     }
 }
