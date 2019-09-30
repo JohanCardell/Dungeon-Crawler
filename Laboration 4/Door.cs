@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace Laboration_4
 {
-    //class Door:DungeonTile,IOpenable
-    //{
-    //    public Door(): base() { }
-    //}
+    class Door : DungeonTile, IOpenable
+    {
+        public Door(int X, int Y)
+            : this(X,Y,'D') { }
+        public Door(int X, int Y, char Symbol) : base(X,Y,Symbol) { }
+    }
 }

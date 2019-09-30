@@ -8,5 +8,8 @@ namespace Laboration_4
 {
     class Loot:Object
     {
+        public Loot(int X, int Y)
+            : this(X, Y, 'L') { }
+        public Loot(int X, int Y, char Symbol) : base(X,Y,Symbol) { }
     }
 }

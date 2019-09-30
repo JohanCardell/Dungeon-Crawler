@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace Laboration_4
 {
-    //class Player:GameAsset,IMoveabel
-    //{
-    //}
+    class Player : GameAsset, IMoveabel
+    {
+        public Player(int X, int Y)
+            : this(X, Y, 'P') { }
+        public Player(int X, int Y, char Symbol) : base(X, Y, Symbol) { }
+    }
 }
