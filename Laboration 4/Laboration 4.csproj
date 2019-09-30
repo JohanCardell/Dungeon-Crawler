@@ -43,11 +43,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AbstractGameAsset.cs" />
+    <Compile Include="AbstractMap.cs" />
+    <Compile Include="AbstractObject.cs" />
+    <Compile Include="AbstractPlayer.cs" />
+    <Compile Include="Chest.cs" />
+    <Compile Include="ILeaveable.cs" />
+    <Compile Include="IMoveabel.cs" />
+    <Compile Include="IOpenable.cs" />
+    <Compile Include="IPassable.cs" />
+    <Compile Include="Monster.cs" />
+    <Compile Include="Door.cs" />
+    <Compile Include="Exit.cs" />
+    <Compile Include="Floor.cs" />
+    <Compile Include="Loot.cs" />
+    <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
+    <Compile Include="Wall.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
