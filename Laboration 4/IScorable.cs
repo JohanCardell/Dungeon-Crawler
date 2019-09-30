@@ -6,11 +6,7 @@ using System.Threading.Tasks;
 
 namespace Laboration_4
 {
-    class Program
+    interface IScorable
     {
-        static void Main(string[] args)
-        {
-
-        }
     }
 }
