@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Laboration_4
 {
-    class Chest:AbstractObject,IOpenable
+    class Chest:Object,IOpenable
     {
     }
 }
