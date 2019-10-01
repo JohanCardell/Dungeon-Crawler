@@ -6,10 +6,12 @@ using System.Threading.Tasks;
 
 namespace Laboration_4
 {
-    class Loot:Object
+    class Loot:GameObject, Iinteractable
     {
-        public Loot(int X, int Y)
-            : this(X, Y, 'L') { }
-        public Loot(int X, int Y, char Symbol) : base(X,Y,Symbol) { }
+            
+        public Loot(int positionX, int positionY, bool isPassable, bool isVisible) 
+            : this(positionX, positionY, isPassable, isVisible, 'L') { }
+        public Loot(int positionX, int positionY, bool isPassable, bool isVisible, char mapRepresentation) 
+            : base(positionX, positionY, isPassable, isVisible, mapRepresentation) { }
     }
 }

@@ -6,10 +6,12 @@ using System.Threading.Tasks;
 
 namespace Laboration_4
 {
-    class Player : GameAsset, IMoveabel
+    class Player : GameAsset
     {
-        public Player(int X, int Y)
-            : this(X, Y, 'P') { }
-        public Player(int X, int Y, char Symbol) : base(X, Y, Symbol) { }
+        public Player(int positionX, int positionY, bool isPassable, bool isVisible) 
+            : this(positionX, positionY, isPassable, isVisible, 'P') { }
+
+        public Player(int positionX, int positionY, bool isPassable, bool isVisible, char mapRepresentation) 
+            : base(positionX, positionY, isPassable, isVisible, mapRepresentation) { }
     }
 }

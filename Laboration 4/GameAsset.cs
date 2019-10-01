@@ -10,17 +10,21 @@ namespace Laboration_4
     {
         private int positionX;
         private int positionY;
-        private char mapSymbol;
+        private char mapRepresentation;
 
         public int PositionX { get; set; }
         public int PositionY { get; set; }
-        public char MapSymbol { get; set; }
+        public char MapRepresentation { get; set; }
+        public bool IsPassable { get; set; }
+        public bool IsVisible { get; set; }
 
-        protected GameAsset(int positionX, int positionY, char mapSymbol)
+        protected GameAsset(int positionX, int positionY,bool ispassable,bool isvisible, char mapRepresentation)
         {
             PositionX = positionX;
             PositionY = positionY;
-            MapSymbol = mapSymbol;
+            MapRepresentation = mapRepresentation;
+            IsPassable = ispassable;
+            IsVisible = isvisible;
         }
     }
 }
