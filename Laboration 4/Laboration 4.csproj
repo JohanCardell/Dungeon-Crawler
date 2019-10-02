@@ -43,10 +43,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Boundary.cs" />
     <Compile Include="Chest.cs" />
     <Compile Include="GameAsset.cs" />
     <Compile Include="Iinteractable.cs" />
     <Compile Include="DungeonTile.cs" />
+    <Compile Include="LevelEditor.cs" />
     <Compile Include="Monster.cs" />
     <Compile Include="Door.cs" />
     <Compile Include="Exit.cs" />
