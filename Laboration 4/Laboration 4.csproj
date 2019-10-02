@@ -43,19 +43,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Boundary.cs" />
     <Compile Include="Chest.cs" />
     <Compile Include="GameAsset.cs" />
-    <Compile Include="ILeaveable.cs" />
-    <Compile Include="IMoveabel.cs" />
-    <Compile Include="IOpenable.cs" />
-    <Compile Include="IPassable.cs" />
+    <Compile Include="Iinteractable.cs" />
     <Compile Include="DungeonTile.cs" />
+    <Compile Include="LevelEditor.cs" />
     <Compile Include="Monster.cs" />
     <Compile Include="Door.cs" />
     <Compile Include="Exit.cs" />
     <Compile Include="Floor.cs" />
     <Compile Include="Loot.cs" />
-    <Compile Include="Object.cs" />
+    <Compile Include="GameObject.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
