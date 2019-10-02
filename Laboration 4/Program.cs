@@ -10,9 +10,7 @@ namespace Laboration_4
     {
         static void Main(string[] args)
         {
-            Wall wall1 = new Wall(0, 0);
-            Console.WriteLine(wall1.MapSymbol);
-            Console.ReadLine();
+            
         }
     }
 }
