@@ -46,6 +46,7 @@
     <Compile Include="Boundary.cs" />
     <Compile Include="Chest.cs" />
     <Compile Include="GameAsset.cs" />
+    <Compile Include="GameState.cs" />
     <Compile Include="Iinteractable.cs" />
     <Compile Include="DungeonTile.cs" />
     <Compile Include="LevelEditor.cs" />
@@ -55,6 +56,8 @@
     <Compile Include="Floor.cs" />
     <Compile Include="Loot.cs" />
     <Compile Include="GameObject.cs" />
+    <Compile Include="Movement.cs" />
+    <Compile Include="MovementLogic.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
