@@ -11,7 +11,7 @@ namespace Laboration_4
         //private const int MapColumns = 8;
         //private const int MapRows = 4;
         static public char[,] map = new char[,]
-        {//Col 0   1   2   3   4   5   6   8   9  10  11
+        {//Col 0   1   2   3   4   5   6   7   8   9  10
             { 'X','X','X','X','X','X','X','X','X','X','X'}, //0
             { 'X','#','#','#','#','#','#','#','#','#','X'}, //1
             { 'X','#',' ',' ',' ',' ',' ',' ',' ','#','X'}, //2
@@ -29,8 +29,7 @@ namespace Laboration_4
         };
         static int maxMapRows = map.GetLength(0);
         static int maxMapColumns = map.GetLength(1);
-
-        public static List<DungeonTile> dungeonTiles = new List<DungeonTile>(); 
+        public static List<DungeonTile> dungeonTiles = new List<DungeonTile>();
         public static void GenerateStartLevel()
         {
             for (int row = 0; row < maxMapRows; row++)
@@ -63,7 +62,7 @@ namespace Laboration_4
                     {
                         if(tile.PositionX.Equals(column) && tile.PositionY.Equals(row))
                         {
-                            Console.Write(tile.MapSymbol);
+                            Console.Write(tile.MapRepresentation);
                         }
                     }
                 }

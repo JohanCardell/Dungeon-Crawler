@@ -10,7 +10,6 @@ namespace Laboration_4
     {
         public Monster(int positionX, int positionY, bool isPassable, bool isVisible) 
             : this(positionX, positionY, isPassable, isVisible, 'M') { }
-
         public Monster(int positionX, int positionY, bool isPassable, bool isVisible, char mapRepresentation) 
             : base(positionX, positionY, isPassable, isVisible, mapRepresentation) { }
     }
