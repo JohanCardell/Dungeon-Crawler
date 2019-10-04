@@ -8,8 +8,17 @@ namespace Laboration_4
 {
     class Chest:GameObject, Iinteractable
     {
-        public Chest(int positionX, int positionY, bool isPassable, bool isVisible) 
-            : this(positionX, positionY, isPassable, isVisible, 'C') { }
+        private Material chestType;
+        public Material ChestType
+        {
+            get => chestType;
+            set => chestType = value;
+        }
+        public Chest(int positionX, int positionY,Material chestType) 
+            : this(positionX, positionY, true, true, 'C')
+        {
+            this.chestType = chestType;
+        }
         public Chest(int positionX, int positionY, bool isPassable, bool isVisible, char mapRepresentation) 
             : base(positionX, positionY, isPassable, isVisible, mapRepresentation) { }
     }
