@@ -2,7 +2,6 @@
 {
     class MovementLogic
     {
-
         public static bool CheckNextMove(Player player)
         {
             DirectionKey directionkey = Movement.Direction();
@@ -10,114 +9,30 @@
             int currentPlayerY = player.PositionY;
             if (directionkey == DirectionKey.Up)
             {
-                var nextMoveX = currentPlayerX;
-                var nextMoveY = currentPlayerY - 1;
-                foreach (var tile in LevelEditor.dungeonTiles)
-                {
-                    if (tile.PositionX == nextMoveX && tile.PositionY == nextMoveY)
-                    {
-                        if (tile.IsPassable)
-                        {
-                            return true;
-                        }
-                        else
-                        {
-                            return false;
-                        }
-                    }
-                }
+                CheckPassable(0, -1, player);
             }
             if (directionkey == DirectionKey.Down)
             {
-                var nextMoveX = currentPlayerX;
-                var nextMoveY = currentPlayerY + 1;
-                foreach (var tile in LevelEditor.dungeonTiles)
-                {
-                    if (tile.PositionX == nextMoveX && tile.PositionY == nextMoveY)
-                    {
-                        if (tile.IsPassable)
-                        {
-                            return true;
-                        }
-                        else
-                        {
-                            return false;
-                        }
-                    }
-                }
+                CheckPassable(0, 1, player);
             }
             if (directionkey == DirectionKey.Left)
             {
-                var nextMoveX = currentPlayerX - 1;
-                var nextMoveY = currentPlayerY;
-                foreach (var tile in LevelEditor.dungeonTiles)
-                {
-                    if (tile.PositionX == nextMoveX && tile.PositionY == nextMoveY)
-                    {
-                        if (tile.IsPassable)
-                        {
-                            return true;
-                        }
-                        else
-                        {
-                            return false;
-                        }
-                    }
-                }
+                CheckPassable(-1, 0, player);
             }
             if (directionkey == DirectionKey.Right)
             {
-                var nextMoveX = currentPlayerX + 1;
-                var nextMoveY = currentPlayerY;
-                foreach (var tile in LevelEditor.dungeonTiles)
-                {
-                    if (tile.PositionX == nextMoveX && tile.PositionY == nextMoveY)
-                    {
-                        if (tile.IsPassable)
-                        {
-                            return true;
-                        }
-                        else
-                        {
-                            return false;
-                        }
-                    }
-                }
+                CheckPassable(1, 0, player);
             }
             return false;
         }
-
-
-        //private static bool CheckNextMoveAvailability(int playerPositionX, int playerPositionY, int changeX, int changeY)
-        //{
-        //    var nextMoveX = playerPositionX + changeX;
-        //    var nextMoveY = playerPositionY + changeY;
-        //    foreach (var tile in LevelEditor.dungeonTiles)
-        //    {
-        //        if (tile.PositionX == nextMoveX && tile.PositionY == nextMoveY)
-        //        {
-        //            if (tile.IsPassable)
-        //            {
-        //                return true;
-        //            }
-        //            else
-        //            {
-        //                return false;
-        //            }
-        //        }
-        //    }
-        //    return false;
-        //}
-
-
-
-
-
-
-
-
-
-
+        private static bool CheckPassable(int xChang, int yChange, Player player)
+        {
+            var nextMoveX = player.PositionX + xChang;
+            var nextMoveY = player.PositionY + yChange;
+            
+            
+            
+        }
     }
 
 }
