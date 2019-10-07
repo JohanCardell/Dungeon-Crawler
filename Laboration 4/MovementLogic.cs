@@ -1,4 +1,6 @@
-﻿namespace Laboration_4
+﻿using System.Collections.Generic;
+
+namespace Laboration_4
 {
     class MovementLogic
     {
@@ -25,14 +27,21 @@
             }
             return false;
         }
-        private static bool CheckPassable(int xChang, int yChange, Player player)
+        private static bool CheckPassable(int xChang, int yChange, List<DungeonTile> dungeonTiles, Player player)
         {
-            var nextMoveX = player.PositionX + xChang;
-            var nextMoveY = player.PositionY + yChange;
-            
-            
-            
+            int nextMoveX = player.PositionX + xChang;
+            int nextMoveY = player.PositionY + yChange;
+            foreach (DungeonTile item in dungeonTiles)
+            {
+                if (item.PositionX == nextMoveX && item.PositionY == nextMoveY && item.IsPassable)
+                {
+                    return true;
+                }
+                break;
+            }
+            return false;
         }
+        //https://stackoverflow.com/questions/19903404/c-sharp-error-not-all-code-paths-return-a-value
     }
 
 }
