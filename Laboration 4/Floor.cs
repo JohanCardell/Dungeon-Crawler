@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 
 namespace Laboration_4
 {
-    class Floor : DungeonTile,IPassable
+    class Floor : DungeonTile, Iinteractable
     {
-        public Floor(int X, int Y, char symbol): base(X,Y, symbol) { }
+        public Floor(int positionX, int positionY) 
+            :this(positionX, positionY, true, false, ' ') {}
+        public Floor(int positionX, int positionY, bool isPassable, bool isVisible, char mapRepresentation) 
+            : base(positionX, positionY, isPassable, isVisible, mapRepresentation) { }
     }
 }

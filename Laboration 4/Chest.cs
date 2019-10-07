@@ -6,10 +6,20 @@ using System.Threading.Tasks;
 
 namespace Laboration_4
 {
-    class Chest:Object,IOpenable
+    class Chest:GameObject, Iinteractable
     {
-        public Chest(int X, int Y)
-            : this(X,Y,'C') { }
-        public Chest(int X, int Y, char Symbol) : base(X,Y,Symbol) { }
+        private Material chestType;
+        public Material ChestType
+        {
+            get => chestType;
+            set => chestType = value;
+        }
+        public Chest(int positionX, int positionY,Material chestType) 
+            : this(positionX, positionY, true, true, 'C')
+        {
+            this.chestType = chestType;
+        }
+        public Chest(int positionX, int positionY, bool isPassable, bool isVisible, char mapRepresentation) 
+            : base(positionX, positionY, isPassable, isVisible, mapRepresentation) { }
     }
 }

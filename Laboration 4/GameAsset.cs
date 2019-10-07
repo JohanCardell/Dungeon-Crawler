@@ -10,17 +10,41 @@ namespace Laboration_4
     {
         private int positionX;
         private int positionY;
-        private char mapSymbol;
-
-        public int PositionX { get; set; }
-        public int PositionY { get; set; }
-        public char MapSymbol { get; set; }
-
-        protected GameAsset(int positionX, int positionY, char mapSymbol)
+        private char mapRepresentation;
+        private bool ispassable;
+        private bool isvisible;
+        public int PositionX
         {
-            PositionX = positionX;
-            PositionY = positionY;
-            MapSymbol = mapSymbol;
+            get => positionX;
+            set => positionX = value;
+        }
+        public int PositionY
+        {
+            get => positionY;
+            set => positionY = value;
+        }
+        public char MapRepresentation
+        {
+            get => mapRepresentation;
+            set => mapRepresentation = value;
+        }
+        public bool IsPassable
+        {
+            get => ispassable;
+            set => ispassable = value;
+        }
+        public bool IsVisible
+        {
+            get => isvisible;
+            set => isvisible = value;
+        }
+        protected GameAsset(int positionX, int positionY,bool ispassable,bool isvisible, char mapRepresentation)
+        {
+            this.positionX = positionX;
+            this.positionY = positionY;
+            this.mapRepresentation = mapRepresentation;
+            this.ispassable = ispassable;
+            this. isvisible = isvisible;
         }
     }
 }

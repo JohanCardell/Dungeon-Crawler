@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Laboration_4
 {
-    interface IPassable
+    interface Iinteractable
     {
+
     }
 }

@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace Laboration_4
 {
-    class Wall:DungeonTile,IPassable
+    class Wall:DungeonTile
     {
-        const char WallMapSymbol = '#';
-        public Wall(int X, int Y)
-            : this(X, Y, '#') { }
-                  
-        public Wall(int X, int Y, char symbol) : base(X, Y, symbol) { }
+        const char WallmapRepresentation = '#';
+        public Wall(int positionX, int positionY) 
+            : this(positionX,positionY,false,false,'#') { }
+        public Wall(int positionX, int positionY, bool isPassable,bool isVisible, char mapRepresentation) 
+            : base(positionX, positionY, isPassable,isVisible, mapRepresentation) { }
         
     }
 }
