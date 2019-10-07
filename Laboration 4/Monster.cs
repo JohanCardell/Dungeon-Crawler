@@ -8,11 +8,25 @@ namespace Laboration_4
 {
     class Monster : GameObject, IInteractable
     {
-        const char MonsterMapRepresentation = 'M';
-        public Monster(int positionX, int positionY)
-            : this(positionX, positionY, false, false, MonsterMapRepresentation) { }
-
-        public Monster(int positionX, int positionY, bool isPassable, bool isVisible, char mapRepresentation)
+        private int hp;
+        private int damage;
+        public int Hp
+        {
+            get => hp;
+            set => hp = value;
+        }
+        public int Damage
+        {
+            get => damage;
+            set => damage = value;
+        }
+        public Monster(int positionX, int positionY) 
+            : this(positionX, positionY, false, true, 'M')
+        {
+            this.hp = 100;
+            this.damage = 10;
+        }
+        public Monster(int positionX, int positionY, bool isPassable, bool isVisible, char mapRepresentation) 
             : base(positionX, positionY, isPassable, isVisible, mapRepresentation) { }
 
         void IInteractable.Interact() { }

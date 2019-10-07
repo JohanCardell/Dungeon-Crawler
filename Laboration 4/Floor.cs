@@ -8,9 +8,8 @@ namespace Laboration_4
 {
     class Floor : DungeonTile, IInteractable
     {
-        const char FloorMapRepresentation = ' ';
         public Floor(int positionX, int positionY) 
-            :this(positionX, positionY, true, false, FloorMapRepresentation) {}
+            :this(positionX, positionY, true, false, ' ') {}
         public Floor(int positionX, int positionY, bool isPassable, bool isVisible, char mapRepresentation) 
             : base(positionX, positionY, isPassable, isVisible, mapRepresentation) { }
 
