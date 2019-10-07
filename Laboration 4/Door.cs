@@ -6,12 +6,15 @@ using System.Threading.Tasks;
 
 namespace Laboration_4
 {
-    class Door : DungeonTile, Iinteractable
+    class Door : GameObject, IInteractable
     {
-        public Door(int positionX, int positionY, bool isPassable, bool isVisible) 
-            : this(positionX, positionY, isPassable, isVisible, 'D') { }
+        const char DoorMapRepresentation = 'D'; 
+        public Door(int positionX, int positionY) 
+            : this(positionX, positionY, false, false, DoorMapRepresentation) { }
 
         public Door(int positionX, int positionY, bool isPassable, bool isVisible, char mapRepresentation) 
             : base(positionX, positionY, isPassable, isVisible, mapRepresentation) { }
+
+        void IInteractable.Interact() { }
     }
 }

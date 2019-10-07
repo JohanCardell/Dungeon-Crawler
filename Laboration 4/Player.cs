@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace Laboration_4
 {
-    class Player : GameAsset
+    public class Player : GameAsset
     {
-        public Player(int positionX, int positionY, bool isPassable, bool isVisible) 
-            : this(positionX, positionY, isPassable, isVisible, 'P') { }
+        const char PlayerMapRepresentation = 'P';
+        public Player(int positionX, int positionY) 
+            : this(positionX, positionY, true, true, PlayerMapRepresentation) { }
 
         public Player(int positionX, int positionY, bool isPassable, bool isVisible, char mapRepresentation) 
             : base(positionX, positionY, isPassable, isVisible, mapRepresentation) { }
