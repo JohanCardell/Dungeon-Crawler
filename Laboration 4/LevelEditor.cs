@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Laboration_4
 {
-    class LevelEditor
+    public static class LevelEditor
     {
         //private const int MapColumns = 8;
         //private const int MapRows = 4;
