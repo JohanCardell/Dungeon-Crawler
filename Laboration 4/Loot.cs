@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace Laboration_4
 {
-    class Loot:GameObject, Iinteractable
+    class Loot:GameObject, IInteractable
     {
         public Loot(int positionX, int positionY, bool isPassable, bool isVisible, char mapRepresentation) 
             : base(positionX, positionY, isPassable, isVisible, mapRepresentation) { }
+
+        void IInteractable.Interact() { }
     }
 }

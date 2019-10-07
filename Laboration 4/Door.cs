@@ -1,6 +1,6 @@
 ﻿namespace Laboration_4
 {
-    class Door : DungeonTile, Iinteractable
+    class Door : GameObject, IInteractable
     {
         private Material doorType;
         public Material DoorType
@@ -18,5 +18,7 @@
 
         public Door(int positionX, int positionY, bool isPassable, bool isVisible, char mapRepresentation)
             : base(positionX, positionY, isPassable, isVisible, mapRepresentation) { }
+
+        void IInteractable.Interact() { }
     }
 }

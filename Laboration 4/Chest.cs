@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Laboration_4
 {
-    class Chest:GameObject, Iinteractable
+    class Chest:GameObject, IInteractable
     {
         private Material chestType;
         public Material ChestType
@@ -21,5 +21,7 @@ namespace Laboration_4
         }
         public Chest(int positionX, int positionY, bool isPassable, bool isVisible, char mapRepresentation) 
             : base(positionX, positionY, isPassable, isVisible, mapRepresentation) { }
+
+        void IInteractable.Interact() { }
     }
 }

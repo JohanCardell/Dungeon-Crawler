@@ -6,28 +6,27 @@ using System.Threading.Tasks;
 
 namespace Laboration_4
 {
+    internal enum Tile {NULL, FLOOR, WALL, BOUNDRY, DOOR }
+    internal enum State { MENU, LOADING, PLAYING, GAMEOVER }
     class Program
     {
         public static void Main(string[] args)
         {
-            Player player = new Player(5,7);
-            LevelEditor.GenerateStartLevel();
-            Console.WriteLine(MovementLogic.CheckNextMove(player));
-
+            var gameSession = new GameSession();
+            var stateMachine = new StateMachine();
+            stateMachine.states = new List<GameState>
+            {
+                new MenuState(gameSession), 
+                new LoadingGameState(gameSession),
+                new PlayingGameState(gameSession),
+                new GameOverState(gameSession)
+            };
+            stateMachine.EnterState(State.MENU, gameSession);
+            stateMachine.EnterState(State.LOADING, gameSession);
+            stateMachine.EnterState(State.PLAYING, gameSession);
+            stateMachine.EnterState(State.GAMEOVER, gameSession);
+            
             Console.ReadKey(true);
-
-            //GameState game = new GameState();
-            //Player player = new Player(5,6);
-            //game.SetPlayer(player);
-            //Player gottenFromGameState = game.GetPlayer();
-            ////if (player == gottenFromGameState)
-            ////{
-            ////    // will be true
-            ////}
-            ////GameState.StaticMethod();
-            //var direction = Movement.Direction();
-            ////kolla player position och räkna ut nästa koordinat. Koll aom spelaren kan stå där
-            ////om spelaren kan stå där. ändra detta i gamestaten
         }
     }
 }

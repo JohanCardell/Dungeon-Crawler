@@ -10,7 +10,8 @@ namespace Laboration_4
     {
         const char WallmapRepresentation = '#';
         public Wall(int positionX, int positionY) 
-            : this(positionX,positionY,false,false,'#') { }
+            : this(positionX, positionY, false , false, WallmapRepresentation) { }
+
         public Wall(int positionX, int positionY, bool isPassable,bool isVisible, char mapRepresentation) 
             : base(positionX, positionY, isPassable,isVisible, mapRepresentation) { }
         

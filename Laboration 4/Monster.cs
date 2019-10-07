@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Laboration_4
 {
-    class Monster:GameObject, Iinteractable
+    class Monster : GameObject, IInteractable
     {
         private int hp;
         private int damage;
@@ -28,5 +28,7 @@ namespace Laboration_4
         }
         public Monster(int positionX, int positionY, bool isPassable, bool isVisible, char mapRepresentation) 
             : base(positionX, positionY, isPassable, isVisible, mapRepresentation) { }
+
+        void IInteractable.Interact() { }
     }
 }
