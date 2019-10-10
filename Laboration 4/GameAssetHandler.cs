@@ -9,10 +9,11 @@ namespace Laboration_4
     public class GameAssetHandler
     {
        
-        public static void Despawn(GameAsset gameAsset, GameSession gameSession, Enum tile)
+
+        public static void Despawn(GameAsset gameAssetToRemove, GameSession gameSession)
         {
-            gameSession.CurrentGameAssets.Remove(gameAsset);
-            Spawn(gameAsset, gameSession, tile);
+            gameSession.CurrentGameAssets.Remove(gameAssetToRemove);
+           // Spawn(gameAsset, gameSession, Tile.FLOOR);
         }
 
         public static void Spawn(GameAsset despawnedGameAsset, GameSession gameSession, Enum tile)
@@ -21,23 +22,17 @@ namespace Laboration_4
             gameSession.CurrentGameAssets.Add(new Floor(despawnedGameAsset.PositionX, despawnedGameAsset.PositionY));
         }
 
-        public static void MakeVisible(GameAsset gameAsset, Player player)
-        {
-            if (IsAdjacentToPlayer(gameAsset, player)) gameAsset.IsVisible = true;
-        }
-
-        public static bool IsAdjacentToPlayer(GameAsset gameAsset, Player player)
-        {
-            if (player.PositionX == gameAsset.PositionX + 1 && player.PositionY == gameAsset.PositionY + 1 ||
-                player.PositionX == gameAsset.PositionX + 1 && player.PositionY == gameAsset.PositionY - 1 ||
-                player.PositionX == gameAsset.PositionX - 1 && player.PositionY == gameAsset.PositionY + 1 ||
-                player.PositionX == gameAsset.PositionX - 1 && player.PositionY == gameAsset.PositionY - 1)
-            {
-                return true;
-            }
-            else
-                return false;
-        }
+        
+    }
+            //if (player.PositionX == gameAsset.PositionX + 1 && player.PositionY == gameAsset.PositionY + 1 ||
+            //    player.PositionX == gameAsset.PositionX + 1 && player.PositionY == gameAsset.PositionY - 1 ||
+            //    player.PositionX == gameAsset.PositionX - 1 && player.PositionY == gameAsset.PositionY + 1 ||
+            //    player.PositionX == gameAsset.PositionX - 1 && player.PositionY == gameAsset.PositionY - 1)
+            //{
+            //    return true;
+            //}
+            //else
+            //    return false;
             //foreach (var gameasset in GameSession.CurrentGameAssets)
             //{
             //    if (gameasset is Monster && gameasset.PositionX == player.PositionX)
@@ -46,6 +41,5 @@ namespace Laboration_4
             //    }
             //}
 
-    }
 }
 

@@ -8,12 +8,12 @@ namespace Laboration_4
 {
     abstract class Exit : DungeonTile, IInteractable
     {
-        public Exit(int positionX, int positionY, bool isPassable, bool isVisible) 
+        public Exit(uint positionX, uint positionY, bool isPassable, bool isVisible) 
             : this(positionX, positionY, isPassable, isVisible, 'E') { }
-        public Exit(int positionX, int positionY, bool isPassable, bool isVisible, char mapRepresentation) 
+        public Exit(uint positionX, uint positionY, bool isPassable, bool isVisible, char mapRepresentation) 
             : base(positionX, positionY, isPassable, isVisible, mapRepresentation) { }
 
-        void IInteractable.Interact() { }
+        public void Interact(Player player) { }
     }
     
 }

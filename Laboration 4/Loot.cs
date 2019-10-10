@@ -8,9 +8,9 @@ namespace Laboration_4
 {
     class Loot:GameObject, IInteractable
     {
-        public Loot(int positionX, int positionY, bool isPassable, bool isVisible, char mapRepresentation) 
+        public Loot(uint positionX, uint positionY, bool isPassable, bool isVisible, char mapRepresentation) 
             : base(positionX, positionY, isPassable, isVisible, mapRepresentation) { }
 
-        void IInteractable.Interact() { }
+        void Interact() { }
     }
 }
