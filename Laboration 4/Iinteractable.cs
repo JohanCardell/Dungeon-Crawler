@@ -8,6 +8,6 @@ namespace Laboration_4
 {
     interface IInteractable
     {
-        void Interact();
+        void Interact(Player player);
     }
 }

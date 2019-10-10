@@ -9,9 +9,9 @@ namespace Laboration_4
     class Boundary : DungeonTile
     {
         public const char mapRepresentation = 'X';
-        public Boundary(int positionX, int positionY)
+        public Boundary(uint positionX, uint positionY)
             : this(positionX, positionY, false, true, mapRepresentation) { }
-        public Boundary(int positionX, int positionY, bool isPassable, bool isVisible, char mapRepresentation) 
+        public Boundary(uint positionX, uint positionY, bool isPassable, bool isVisible, char mapRepresentation) 
             : base(positionX, positionY, isPassable, isVisible, mapRepresentation) { }
     }
 }

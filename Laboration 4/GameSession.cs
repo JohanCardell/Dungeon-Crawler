@@ -11,14 +11,16 @@ namespace Laboration_4
         public bool GameOver { get; set; }
         public GameSession() { }
 
-        private Player player;
-        public void SetPlayer(Player player)
-        {
-            this.player = player;
-        }
         public Player GetPlayer()
         {
-            return this.player;
+            foreach(var element in CurrentGameAssets)
+            {
+                if (element is Player)
+                {
+                    return element as Player;
+                }
+            }
+            return null;
         }
 
     }
