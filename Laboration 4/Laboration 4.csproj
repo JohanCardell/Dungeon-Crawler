@@ -54,6 +54,7 @@
     <Compile Include="GameSession.cs" />
     <Compile Include="GameState.cs" />
     <Compile Include="GameOverState.cs" />
+    <Compile Include="Inventory.cs" />
     <Compile Include="MenuState.cs" />
     <Compile Include="PlayingGameState.cs" />
     <Compile Include="GameAsset.cs" />
