@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Laboration_4
 {
-    class Player : GameAsset
+    public class Player : GameAsset
     {
         private int hp;
         private Material swordType;

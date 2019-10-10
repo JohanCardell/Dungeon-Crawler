@@ -6,30 +6,13 @@ using System.Threading.Tasks;
 
 namespace Laboration_4
 {
-    class GameState
+    public class GameState
     {
-        Player player;
-        List<DungeonTile> dungeonTiles;
-        List<Chest> chests;
-    
-        public void SetPlayer(Player player)
+        public GameSession GameSession { get; set; }
+        public GameState(GameSession gameSession)
         {
-            this.player = player;
+            GameSession = gameSession;
         }
-
-        public Player GetPlayer()
-        {
-            return this.player;
-        }
-        
-
-        //public static void StaticMethod()
-        //{
-        //    Console.WriteLine("My Static Method");
-        //}
-        //void GetPlayerPosition()
-        //{
-        //    Player player2 = new Player(4,5);
-        //}
+        public virtual void Start(GameSession gameSession) { }
     }
 }

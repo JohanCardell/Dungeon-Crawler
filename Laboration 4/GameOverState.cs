@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Laboration_4
 {
-    interface IInteractable
+    class GameOverState : GameState
     {
-        void Interact();
+        public GameOverState(GameSession gameSession) : base(gameSession) { }
     }
 }

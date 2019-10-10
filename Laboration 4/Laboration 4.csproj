@@ -48,14 +48,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GameAssetHandler.cs" />
     <Compile Include="Boundary.cs" />
     <Compile Include="Chest.cs" />
-    <Compile Include="GameAsset.cs" />
+    <Compile Include="GameSession.cs" />
     <Compile Include="GameState.cs" />
-    <Compile Include="Iinteractable.cs" />
+    <Compile Include="GameOverState.cs" />
+    <Compile Include="MenuState.cs" />
+    <Compile Include="PlayingGameState.cs" />
+    <Compile Include="GameAsset.cs" />
+    <Compile Include="IInteractable.cs" />
     <Compile Include="DungeonTile.cs" />
-    <Compile Include="Key.cs" />
-    <Compile Include="LevelEditor.cs" />
+    <Compile Include="LoadingState.cs" />
+    <Compile Include="Gameworld.cs" />
+    <Compile Include="MapLogic.cs" />
     <Compile Include="Monster.cs" />
     <Compile Include="Door.cs" />
     <Compile Include="Exit.cs" />
@@ -67,6 +73,7 @@
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StateMachine.cs" />
     <Compile Include="Wall.cs" />
   </ItemGroup>
   <ItemGroup>
