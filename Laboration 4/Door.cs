@@ -2,21 +2,16 @@
 {
     class Door : GameObject, IInteractable
     {
-        private Color doorType;
-        public Color DoorType
-        {
-            get => doorType;
-            set => doorType = value;
-        }
+           
         public Door(uint positionX, uint positionY, Color color)
-            : this(positionX, positionY, true, true, 'D')
-        {
-            DoorType = doorType;
-        }
-        public Door(uint positionX, uint positionY, bool isPassable, bool isVisible)
-            : this(positionX, positionY, isPassable, isVisible, 'D') { }
-        public Door(uint positionX, uint positionY, bool isPassable, bool isVisible, char mapRepresentation)
-            : base(positionX, positionY, isPassable, isVisible, mapRepresentation) { }
+            : this(positionX, positionY, false, false, 'D', color) { }
+        
+        public Door(uint positionX, uint positionY, bool isPassable, bool isVisible, Color color)
+            : this(positionX, positionY, isPassable, isVisible, 'D', color) { }
+
+        public Door(uint positionX, uint positionY, bool isPassable, bool isVisible, char mapRepresentation, Color color)
+            : base(positionX, positionY, isPassable, isVisible, mapRepresentation, color ) { }
+
         public void Interact(Player player, Door door, GameSession gameSession)
         {
             //TODO check if player has the right key

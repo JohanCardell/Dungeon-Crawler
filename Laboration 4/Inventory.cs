@@ -1,14 +1,13 @@
 ﻿namespace Laboration_4
 {
-    
-    //public enum Sword {Bronze, Silver, Gold }
+
     public class Inventory
     {
         private uint numberOfBronzeKeys;
         private uint numberOfSilverKeys;
         private uint numberOfGoldKeys;
         private uint numberOfHealthPotions;
-        private Sword sword;
+        private Color sword;
         #region Getters and setters
         public uint NumberOfBronzeKeys
         {
@@ -25,7 +24,7 @@
             get => numberOfGoldKeys;
             set => numberOfGoldKeys = value;
         }
-        public Sword Sword
+        public Color Sword
         {
             get => sword;
             set => sword = value;

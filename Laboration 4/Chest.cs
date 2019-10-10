@@ -8,19 +8,13 @@ namespace Laboration_4
 {
     class Chest:GameObject, IInteractable
     {
-        private Material chestType;
-        public Material ChestType
+        public Chest(uint positionX, uint positionY,Color color) 
+            : this(positionX, positionY, false, false, 'C', color)
         {
-            get => chestType;
-            set => chestType = value;
+            Color = color;
         }
-        public Chest(uint positionX, uint positionY,Material chestType) 
-            : this(positionX, positionY, true, true, 'C')
-        {
-            this.chestType = chestType;
-        }
-        public Chest(uint positionX, uint positionY, bool isPassable, bool isVisible, char mapRepresentation) 
-            : base(positionX, positionY, isPassable, isVisible, mapRepresentation) { }
+        public Chest(uint positionX, uint positionY, bool isPassable, bool isVisible, char mapRepresentation, Color color) 
+            : base(positionX, positionY, isPassable, isVisible, mapRepresentation, color) { }
 
         public void Interact() { }
     }

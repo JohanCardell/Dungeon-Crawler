@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace Laboration_4
 {
-    public enum Color { NONE, BRONZE, SILVER, GOLD }
+    public enum Color {NONE, BRONZE, SILVER, GOLD, GREY, GREEN, RED }
     internal enum Tile {NULL, FLOOR, WALL, BOUNDRY, DOOR }
-    internal enum Material { NONE , BRONZE, SILVER, GOLD }
     internal enum State { MENU, LOADING, PLAYING, GAMEOVER }
 
     class Program
@@ -28,10 +27,6 @@ namespace Laboration_4
             stateMachine.EnterState(State.LOADING, gameSession);
             stateMachine.EnterState(State.PLAYING, gameSession);
             stateMachine.EnterState(State.GAMEOVER, gameSession);
-
-            
-            
-            
             
             Console.ReadKey(true);
         }

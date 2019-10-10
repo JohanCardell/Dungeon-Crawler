@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 namespace Laboration_4
 {
     public abstract class GameAsset
@@ -13,6 +14,7 @@ namespace Laboration_4
         private char mapRepresentation;
         private bool isPassable;
         private bool isVisible;
+
         public Color Color
         {
             get => color;

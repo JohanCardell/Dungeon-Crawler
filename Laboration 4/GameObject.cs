@@ -8,9 +8,9 @@ namespace Laboration_4
 {
     abstract class GameObject : GameAsset, IInteractable
     {
-        protected GameObject(uint positionX, uint positionY, bool isPassable, bool isVisible, char mapRepresentation,Color color) 
-            : base(positionX, positionY, isPassable, isVisible, mapRepresentation,color) { }
+        protected GameObject(uint positionX, uint positionY, bool isPassable, bool isVisible, char mapRepresentation, Color color) 
+            : base(positionX, positionY, isPassable, isVisible, mapRepresentation, color) { }
 
-        public virtual void Interact(Player player) { }
+        public void Interact(Player player) { }
     }
 }
