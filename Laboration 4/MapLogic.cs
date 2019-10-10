@@ -22,7 +22,31 @@ namespace Laboration_4
                         {
                             if (asset.IsVisible)
                             {
+                                switch (asset.Color)
+                                {
+                                    case Color.NONE:
+                                        break;
+                                    case Color.BRONZE:
+                                        Console.ForegroundColor = ConsoleColor.DarkYellow;
+                                        break;
+                                    case Color.SILVER:
+                                        Console.ForegroundColor = ConsoleColor.Cyan;
+                                        break;
+                                    case Color.GOLD:
+                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                        break;
+                                    case Color.GREY:
+                                        Console.ForegroundColor = ConsoleColor.Gray;
+                                        break;
+                                    case Color.RED:
+                                        Console.ForegroundColor = ConsoleColor.Red;
+                                        break;
+                                    case Color.GREEN:
+                                        Console.ForegroundColor = ConsoleColor.Green;
+                                        break;
+                                }
                                 Console.Write(asset.MapRepresentation);
+                                Console.ResetColor();
                             }
                             else
                             {

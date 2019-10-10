@@ -21,13 +21,13 @@ namespace Laboration_4
             set => damageOutput = value;
         }
         public Monster(uint positionX, uint positionY) 
-            : this(positionX, positionY, false, true, 'M')
+            : this(positionX, positionY, false, false, 'M', Color.GREEN )
         {
             this.healthPoints = 100;
             this.damageOutput = 10;
         }
-        public Monster(uint positionX, uint positionY, bool isPassable, bool isVisible, char mapRepresentation) 
-            : base(positionX, positionY, isPassable, isVisible, mapRepresentation) { }
+        public Monster(uint positionX, uint positionY, bool isPassable, bool isVisible, char mapRepresentation, Color color) 
+            : base(positionX, positionY, isPassable, isVisible, mapRepresentation, color) { }
 
         public void Interact(Player player)
         {
