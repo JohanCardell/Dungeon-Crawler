@@ -2,7 +2,7 @@
 {
     public enum Color { Bronze, Silver, Gold }
     public enum Sword {Bronze, Silver, Gold }
-    //public enum Color {Bronze, Silver, Gold }
+
     public class Inventory
     {
         private uint numberOfBronzeKeys;
