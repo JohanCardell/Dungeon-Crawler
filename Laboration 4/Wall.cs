@@ -9,10 +9,10 @@ namespace Laboration_4
     class Wall:DungeonTile
     {
         const char WallmapRepresentation = '#';
-        public Wall(int positionX, int positionY) 
+        public Wall(uint positionX, uint positionY) 
             : this(positionX, positionY, false , false, WallmapRepresentation) { }
 
-        public Wall(int positionX, int positionY, bool isPassable,bool isVisible, char mapRepresentation) 
+        public Wall(uint positionX, uint positionY, bool isPassable,bool isVisible, char mapRepresentation) 
             : base(positionX, positionY, isPassable,isVisible, mapRepresentation) { }
         
     }

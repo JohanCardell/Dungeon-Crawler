@@ -8,11 +8,13 @@ namespace Laboration_4
 {
     class MapLogic
     {
-        public static void RenderLevel(List<GameAsset> gameAssets, int maxMapColumns, int maxMapRows)
+        public static void RenderLevel(GameSession gameSession)
         {
-            for (int row = 0; row < maxMapRows; row++)
+            RemoveFogOfWar(gameSession);
+            List<GameAsset> gameAssets = gameSession.CurrentGameAssets;
+            for (uint row = 0; row < gameSession.MaxMapRows; row++)
             {
-                for (int column = 0; column < maxMapColumns; column++)
+                for (uint column = 0; column < gameSession.MaxMapColumns; column++)
                 {
                     foreach (GameAsset asset in gameAssets)
                     {
@@ -30,6 +32,23 @@ namespace Laboration_4
                     }
                 }
                 Console.WriteLine();
+            }
+        }
+        static void RemoveFogOfWar(GameSession gameSession)
+        {
+            Player player = gameSession.GetPlayer();
+            foreach (GameAsset element in gameSession.CurrentGameAssets)
+            {
+                for (int row = -1; row < 2; row++)
+                {
+                    for (int column = -1; column < 2; column++)
+                    {
+                        if (player.PositionX == element.PositionX + column && player.PositionY == element.PositionY + row)
+                        {
+                            element.IsVisible = true;
+                        }
+                    }
+                }
             }
         }
     }

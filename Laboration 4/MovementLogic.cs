@@ -1,48 +1,74 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Laboration_4
 {
-    class MovementLogic
+    static class MovementLogic
     {
-        public static bool CheckNextMove(Player player)
+        public static TargetPosition GetTargetPosition(GameAsset intruderGameAsset)
         {
-            DirectionKey directionkey = Movement.Direction();
-            int currentPlayerX = player.PositionX;
-            int currentPlayerY = player.PositionY;
-            if (directionkey == DirectionKey.Up)
-            {
-                CheckPassable(0, -1, player);
-            }
-            if (directionkey == DirectionKey.Down)
-            {
-                CheckPassable(0, 1, player);
-            }
-            if (directionkey == DirectionKey.Left)
-            {
-                CheckPassable(-1, 0, player);
-            }
-            if (directionkey == DirectionKey.Right)
-            {
-                CheckPassable(1, 0, player);
-            }
-            return false;
-        }
-        private static bool CheckPassable(int xChang, int yChange, List<DungeonTile> dungeonTiles, Player player)
-        {
-            int nextMoveX = player.PositionX + xChang;
-            int nextMoveY = player.PositionY + yChange;
-            foreach (DungeonTile item in dungeonTiles)
-            {
-                if (item.PositionX == nextMoveX && item.PositionY == nextMoveY && item.IsPassable)
-                {
-                    return true;
-                }
-                break;
-            }
-            return false;
-        }
-        //https://stackoverflow.com/questions/19903404/c-sharp-error-not-all-code-paths-return-a-value
-    }
+            DirectionKey directionKey = MovementInput.Direction();
+            TargetPosition targetPosition = new TargetPosition(0, 0);
 
+            switch (directionKey)
+            {
+                case DirectionKey.Up:
+                    targetPosition.PositionX = intruderGameAsset.PositionX;
+                    targetPosition.PositionY = intruderGameAsset.PositionY - 1;
+                    break;
+                case DirectionKey.Down:
+                    targetPosition.PositionX = intruderGameAsset.PositionX;
+                    targetPosition.PositionY = intruderGameAsset.PositionY + 1;
+                    break;
+                case DirectionKey.Left:
+                    targetPosition.PositionX = intruderGameAsset.PositionX - 1;
+                    targetPosition.PositionY = intruderGameAsset.PositionY;
+                    break;
+                case DirectionKey.Right:
+                    targetPosition.PositionX = intruderGameAsset.PositionX + 1;
+                    targetPosition.PositionY = intruderGameAsset.PositionY;
+                    break;
+                case DirectionKey.NoDirection:
+                    break;
+            }
+            return targetPosition;
+        }
+        public static void InteractWithTarget(TargetPosition targetPosition, GameSession gameSession)
+        {
+            Player player = gameSession.GetPlayer();
+            foreach (GameAsset gameAsset in gameSession.CurrentGameAssets)
+                if (gameAsset.PositionX == targetPosition.PositionX && gameAsset.PositionY == targetPosition.PositionY)
+                {
+                    if (gameAsset is IInteractable interactable)
+                    {
+                        interactable.Interact(player);
+                    }
+                }
+        }
+
+        public static void Move(GameAsset intruderGameAsset, TargetPosition targetPosition, GameSession gameSession)
+        {
+            // Remove target tile
+            List<GameAsset> gameAssets = gameSession.CurrentGameAssets;
+            GameAsset foundGameAsset;
+            foreach (GameAsset gameAsset in gameAssets)
+            {
+                if (gameAsset.PositionX == targetPosition.PositionX && gameAsset.PositionY == targetPosition.PositionY && gameAsset.IsPassable)
+                {
+                    foundGameAsset = gameAsset;
+                    gameSession.CurrentGameAssets.Remove(gameAsset);
+                    // Spawn floor where player/monster used to be
+                    gameSession.CurrentGameAssets.Add(new Floor(intruderGameAsset.PositionX, intruderGameAsset.PositionY));
+                    // Move player/monster to the target tile
+                    intruderGameAsset.PositionX = targetPosition.PositionX;
+
+                    intruderGameAsset.PositionY = targetPosition.PositionY;
+                    break;
+                }
+
+            }
+
+        }
+    }
 }
 

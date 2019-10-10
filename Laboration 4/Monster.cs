@@ -8,27 +8,40 @@ namespace Laboration_4
 {
     class Monster : GameObject, IInteractable
     {
-        private int hp;
-        private int damage;
-        public int Hp
+        private int healthPoints;
+        private int damageOutput;
+        public int HealthPoints
         {
-            get => hp;
-            set => hp = value;
+            get => healthPoints;
+            set => healthPoints = value;
         }
-        public int Damage
+        public int DamageOutput
         {
-            get => damage;
-            set => damage = value;
+            get => damageOutput;
+            set => damageOutput = value;
         }
-        public Monster(int positionX, int positionY) 
+        public Monster(uint positionX, uint positionY) 
             : this(positionX, positionY, false, true, 'M')
         {
-            this.hp = 100;
-            this.damage = 10;
+            this.healthPoints = 100;
+            this.damageOutput = 10;
         }
-        public Monster(int positionX, int positionY, bool isPassable, bool isVisible, char mapRepresentation) 
+        public Monster(uint positionX, uint positionY, bool isPassable, bool isVisible, char mapRepresentation) 
             : base(positionX, positionY, isPassable, isVisible, mapRepresentation) { }
 
-        void IInteractable.Interact() { }
+        public void Interact(Player player)
+        {
+            bool inCombat = true;
+            Random rng = new Random();
+            while (this.HealthPoints > 0 && inCombat == true)
+            {
+                this.HealthPoints -= this.HealthPoints - player.DamageOutput + rng.Next(0, 6);
+                player.HealthPoints -= this.DamageOutput + rng.Next(0, 6);
+                Console.Clear();
+                //TODO Skriv ut meddelande om skadan och visa på något sätt i GUI
+                if (player.HealthPoints <= 0 || this.HealthPoints <= 0) inCombat = false;
+            }
+            this.IsPassable = true;
+        }
     }
 }

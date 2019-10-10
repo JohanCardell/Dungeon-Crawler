@@ -8,17 +8,22 @@
             get => doorType;
             set => doorType = value;
         }
-        public Door(int positionX, int positionY, Material doorType)
+        public Door(uint positionX, uint positionY, Material doorType)
             : this(positionX, positionY, true, true, 'D')
         {
             this.doorType = doorType;
         }
-        public Door(int positionX, int positionY, bool isPassable, bool isVisible)
+        public Door(uint positionX, uint positionY, bool isPassable, bool isVisible)
             : this(positionX, positionY, isPassable, isVisible, 'D') { }
 
-        public Door(int positionX, int positionY, bool isPassable, bool isVisible, char mapRepresentation)
+        public Door(uint positionX, uint positionY, bool isPassable, bool isVisible, char mapRepresentation)
             : base(positionX, positionY, isPassable, isVisible, mapRepresentation) { }
 
-        void IInteractable.Interact() { }
+        public void Interact(Player player, Door door, GameSession gameSession)
+        {
+            //TODO check if player has the right key
+            //if (key.Material == door.Material)
+           // if (door.doorType == Ke
+        }
     }
 }

@@ -8,7 +8,7 @@ namespace Laboration_4
 {
     abstract class DungeonTile : GameAsset
     {
-        protected DungeonTile(int positionX, int positionY, bool isPassable, bool isVisible, char mapRepresentation) 
+        protected DungeonTile(uint positionX, uint positionY, bool isPassable, bool isVisible, char mapRepresentation) 
             :  base(positionX, positionY,isPassable, isVisible, mapRepresentation) { } 
     }
 }

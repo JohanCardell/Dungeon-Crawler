@@ -14,14 +14,14 @@ namespace Laboration_4
             get => chestType;
             set => chestType = value;
         }
-        public Chest(int positionX, int positionY,Material chestType) 
+        public Chest(uint positionX, uint positionY,Material chestType) 
             : this(positionX, positionY, true, true, 'C')
         {
             this.chestType = chestType;
         }
-        public Chest(int positionX, int positionY, bool isPassable, bool isVisible, char mapRepresentation) 
+        public Chest(uint positionX, uint positionY, bool isPassable, bool isVisible, char mapRepresentation) 
             : base(positionX, positionY, isPassable, isVisible, mapRepresentation) { }
 
-        void IInteractable.Interact() { }
+        public void Interact() { }
     }
 }

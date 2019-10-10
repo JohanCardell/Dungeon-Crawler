@@ -8,17 +8,17 @@ namespace Laboration_4
 {
     public abstract class GameAsset
     {
-        private int positionX;
-        private int positionY;
+        private uint positionX;
+        private uint positionY;
         private char mapRepresentation;
-        private bool ispassable;
+        private bool isPassable;
         private bool isVisible;
-        public int PositionX
+        public uint PositionX
         {
             get => positionX;
             set => positionX = value;
         }
-        public int PositionY
+        public uint PositionY
         {
             get => positionY;
             set => positionY = value;
@@ -38,13 +38,13 @@ namespace Laboration_4
             get => isVisible;
             set => isVisible = value;
         }
-        protected GameAsset(int positionX, int positionY,bool isPassable,bool isVisible, char mapRepresentation)
+        protected GameAsset(uint positionX, uint positionY, bool isPassable, bool isVisible, char mapRepresentation)
         {
             this.positionX = positionX;
             this.positionY = positionY;
-            this.mapRepresentation = mapRepresentation;
-            this.ispassable = isPassable;
+            this.isPassable = isPassable;
             this. isVisible = isVisible;
+            this.mapRepresentation = mapRepresentation;
         }
     }
 }

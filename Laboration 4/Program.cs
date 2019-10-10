@@ -7,7 +7,9 @@ using System.Threading.Tasks;
 namespace Laboration_4
 {
     internal enum Tile {NULL, FLOOR, WALL, BOUNDRY, DOOR }
+    internal enum Material { NONE , BRONZE, SILVER, GOLD }
     internal enum State { MENU, LOADING, PLAYING, GAMEOVER }
+
     class Program
     {
         public static void Main(string[] args)

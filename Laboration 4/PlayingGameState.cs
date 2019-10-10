@@ -11,11 +11,15 @@ namespace Laboration_4
         public PlayingGameState(GameSession gameSession) : base(gameSession) { }
 
         public override void Start(GameSession gameSession)
-        { 
+        {
         while (gameSession.GameOver == false)
             {
-                MapLogic.RenderLevel(gameSession.CurrentGameAssets, gameSession.MaxMapColumns, gameSession.MaxMapRows);
-                Console.ReadKey(true);
+                Player player = gameSession.GetPlayer();
+                MapLogic.RenderLevel(gameSession);
+                TargetPosition targetPosition = MovementLogic.GetTargetPosition(gameSession.GetPlayer());
+                MovementLogic.InteractWithTarget(targetPosition, gameSession);
+                MovementLogic.Move(player, targetPosition, gameSession);
+                if (player.HealthPoints <= 0) gameSession.GameOver = true;
             }
         }
     }

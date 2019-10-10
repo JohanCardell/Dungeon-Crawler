@@ -5,32 +5,28 @@ namespace Laboration_4
 {
     public class Player : GameAsset
     {
-        private int hp;
+        private int healthPoints;
         private Material swordType;
         
-        public int HP
+        public int HealthPoints
         {
-            get => hp;
-            set => hp = value;
+            get => healthPoints;
+            set => healthPoints = value;
         }
-        public Material SwordType
-        {
-            get => swordType;
-            set => swordType = SwordType;
-        }
-        public Player(int positionX, int positionY)
+        public int DamageOutput { get; internal set; }
+
+        //public Material SwordType
+        //{
+        //    get => swordType;
+        //    set => swordType = SwordType;
+        //}
+        public Player(uint positionX, uint positionY)
              : this(positionX, positionY, false, true, 'P')
         {
-            this.hp = 1000;
-            this.swordType = Material.Bronze;
+            this.healthPoints = 1000;
+            this.swordType = Material.BRONZE;
         }
-        public Player(int positionX, int positionY, bool isPassable, bool isVisible, char mapRepresentation)
+        public Player(uint positionX, uint positionY, bool isPassable, bool isVisible, char mapRepresentation)
             : base(positionX, positionY, isPassable, isVisible, mapRepresentation) { }
-        //public IEnumerator GetEnumerator()
-        //{
-        //    return (IEnumerator)GetEnumerator();
-        //}
-        //https://docs.microsoft.com/en-us/dotnet/api/system.collections.ienumerable.getenumerator?view=netframework-4.8
-        //http://james-ramsden.com/implement-ienumerable-c/
     }
 }

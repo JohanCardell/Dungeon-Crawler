@@ -14,20 +14,22 @@ namespace Laboration_4
         {
             gameSession.CurrentGameWorld = GameWorld.initialGameWorld;
             SetMapDimensions (gameSession);
-            gameSession.CurrentGameAssets = GenerateGameAssets(gameSession.CurrentGameWorld);
+            gameSession.CurrentGameAssets = GenerateGameAssets(gameSession);
             gameSession.GameOver = false;
+            gameSession.GetPlayer();
         }
         public void SetMapDimensions(GameSession gameSession)
         {
             gameSession.MaxMapRows = gameSession.CurrentGameWorld.GetLength(0);
             gameSession.MaxMapColumns = gameSession.CurrentGameWorld.GetLength(1);
         }
-        public List<GameAsset> GenerateGameAssets(char[,] gameWorld)
+        public List<GameAsset> GenerateGameAssets(GameSession gameSession)
         {
+            char[,] gameWorld = gameSession.CurrentGameWorld;
             List<GameAsset> gameAssets = new List<GameAsset>();
-            for (int row = 0; row < gameWorld.GetLength(0); row++)
+            for (uint row = 0; row < gameWorld.GetLength(0); row++)
             {
-                for (int column = 0; column < gameWorld.GetLength(1); column++)
+                for (uint column = 0; column < gameWorld.GetLength(1); column++)
                 {
                     if (gameWorld[row, column] == '#')
                     {
@@ -43,7 +45,7 @@ namespace Laboration_4
                     }
                     else if (gameWorld[row, column] == 'D')
                     {
-                        gameAssets.Add(new Door(column, row));
+                        gameAssets.Add(new Door(column, row, Material.NONE));
                     }
                     else if (gameWorld[row, column] == 'M')
                     {
@@ -51,7 +53,7 @@ namespace Laboration_4
                     }
                     else if (gameWorld[row, column] == 'C')
                     {
-                        gameAssets.Add(new Chest(column, row));
+                        gameAssets.Add(new Chest(column, row, Material.NONE));
                     }
                     else if (gameWorld[row, column] == 'P')
                     {
@@ -61,6 +63,5 @@ namespace Laboration_4
             }
             return gameAssets;
         }
-
     }
 }
