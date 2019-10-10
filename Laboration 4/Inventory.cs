@@ -3,11 +3,17 @@
 
     public class Inventory
     {
-        private uint numberOfBronzeKeys;
+        private uint numberOfBronzeKeys=0;
         private uint numberOfSilverKeys;
         private uint numberOfGoldKeys;
         private uint numberOfHealthPotions;
         private Color sword;
+        public bool HasBronzeKeys
+        {
+            get => numberOfBronzeKeys > 0;
+        }
+        
+
         #region Getters and setters
         public uint NumberOfBronzeKeys
         {
@@ -35,6 +41,5 @@
             set => numberOfHealthPotions = value;
         }
         #endregion
-        
     }
 }

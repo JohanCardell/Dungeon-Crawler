@@ -8,17 +8,17 @@ namespace Laboration_4
 {
     public abstract class GameAsset
     {
-        private Color color;
+        private Color assetColor;
         private uint positionX;
         private uint positionY;
         private char mapRepresentation;
         private bool isPassable;
         private bool isVisible;
 
-        public Color Color
+        public Color AssetColor
         {
-            get => color;
-            set => color = value;
+            get => assetColor;
+            set => assetColor = value;
         }
         public uint PositionX
         {
@@ -47,7 +47,7 @@ namespace Laboration_4
         }
         protected GameAsset(uint positionX, uint positionY, bool isPassable, bool isVisible, char mapRepresentation, Color color)
         {
-            Color = color;
+            AssetColor = color;
             PositionX = positionX;
             PositionY = positionY;
             IsPassable = isPassable;

@@ -55,6 +55,7 @@
     <Compile Include="GameState.cs" />
     <Compile Include="GameOverState.cs" />
     <Compile Include="Inventory.cs" />
+    <Compile Include="KeyLoot.cs" />
     <Compile Include="MenuState.cs" />
     <Compile Include="PlayingGameState.cs" />
     <Compile Include="GameAsset.cs" />
@@ -75,6 +76,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StateMachine.cs" />
+    <Compile Include="Sword.cs" />
     <Compile Include="TargetPosition.cs" />
     <Compile Include="Wall.cs" />
   </ItemGroup>

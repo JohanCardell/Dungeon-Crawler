@@ -5,8 +5,10 @@ namespace Laboration_4
 {
     public class Player : GameAsset
     {
+        public Inventory inventory = new Inventory();
         private int healthPoints;
         private Color swordType;
+        
         
         public int HealthPoints
         {
@@ -24,7 +26,7 @@ namespace Laboration_4
              : this(positionX, positionY, false, true, 'P', Color.RED)
         {
             HealthPoints = 1000;
-            Color = Color.BRONZE;
+            AssetColor = Color.BRONZE;
         }
         public Player(uint positionX, uint positionY, bool isPassable, bool isVisible, char mapRepresentation, Color color)
             : base(positionX, positionY, isPassable, isVisible, mapRepresentation, color) { }

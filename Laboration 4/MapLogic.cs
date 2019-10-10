@@ -22,7 +22,7 @@ namespace Laboration_4
                         {
                             if (asset.IsVisible)
                             {
-                                switch (asset.Color)
+                                switch (asset.AssetColor)
                                 {
                                     case Color.NONE:
                                         break;
