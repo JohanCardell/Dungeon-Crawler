@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Laboration_4
 {
-    class Boundary : DungeonTile
+    class Boundary : GameAsset
     {
         public const char mapRepresentation = 'X';
         public Boundary(uint positionX, uint positionY)
-            : this(positionX, positionY, false, true, mapRepresentation) { }
-        public Boundary(uint positionX, uint positionY, bool isPassable, bool isVisible, char mapRepresentation) 
-            : base(positionX, positionY, isPassable, isVisible, mapRepresentation) { }
+            : this(positionX, positionY, false, true, mapRepresentation, Color.NONE) { }
+        public Boundary(uint positionX, uint positionY, bool isPassable, bool isVisible, char mapRepresentation, Color color) 
+            : base(positionX, positionY, isPassable, isVisible, mapRepresentation, color) { }
     }
 }
