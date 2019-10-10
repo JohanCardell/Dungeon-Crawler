@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Laboration_4
 {
-    abstract class Exit : DungeonTile, IInteractable
+    class Exit : DungeonTile, IInteractable
     {
-        public Exit(uint positionX, uint positionY, bool isPassable, bool isVisible) 
-            : this(positionX, positionY, isPassable, isVisible, 'E') { }
+        public Exit(uint positionX, uint positionY) 
+            : this(positionX, positionY, true, true, 'E') { }
         public Exit(uint positionX, uint positionY, bool isPassable, bool isVisible, char mapRepresentation) 
             : base(positionX, positionY, isPassable, isVisible, mapRepresentation) { }
 

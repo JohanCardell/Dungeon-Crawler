@@ -45,7 +45,7 @@ namespace Laboration_4
                     }
                     else if (gameWorld[row, column] == 'D')
                     {
-                        gameAssets.Add(new Door(column, row, Material.NONE));
+                        gameAssets.Add(new Door(column, row, Color.Bronze));
                     }
                     else if (gameWorld[row, column] == 'M')
                     {
@@ -58,6 +58,10 @@ namespace Laboration_4
                     else if (gameWorld[row, column] == 'P')
                     {
                         gameAssets.Add(new Player(column, row));
+                    }
+                    else if (gameWorld[row, column] == 'E')
+                    {
+                        gameAssets.Add(new Exit(column,row));
                     }
                 }
             }

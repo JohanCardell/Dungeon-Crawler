@@ -3,16 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 namespace Laboration_4
 {
     public abstract class GameAsset
     {
+        private Color color;
         private uint positionX;
         private uint positionY;
         private char mapRepresentation;
         private bool isPassable;
         private bool isVisible;
+        public Color Color
+        {
+            get => color;
+            set => color = value;
+        }
         public uint PositionX
         {
             get => positionX;
@@ -38,13 +43,14 @@ namespace Laboration_4
             get => isVisible;
             set => isVisible = value;
         }
-        protected GameAsset(uint positionX, uint positionY, bool isPassable, bool isVisible, char mapRepresentation)
+        protected GameAsset(uint positionX, uint positionY, bool isPassable, bool isVisible, char mapRepresentation, Color color)
         {
-            this.positionX = positionX;
-            this.positionY = positionY;
-            this.isPassable = isPassable;
-            this. isVisible = isVisible;
-            this.mapRepresentation = mapRepresentation;
+            Color = color;
+            PositionX = positionX;
+            PositionY = positionY;
+            IsPassable = isPassable;
+            IsVisible = isVisible;
+            MapRepresentation = mapRepresentation;
         }
     }
 }
