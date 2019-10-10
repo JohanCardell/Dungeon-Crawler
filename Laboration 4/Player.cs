@@ -6,7 +6,7 @@ namespace Laboration_4
     public class Player : GameAsset
     {
         private int healthPoints;
-        private Material swordType;
+        private Color swordType;
         
         public int HealthPoints
         {
@@ -21,12 +21,12 @@ namespace Laboration_4
         //    set => swordType = SwordType;
         //}
         public Player(uint positionX, uint positionY)
-             : this(positionX, positionY, false, true, 'P')
+             : this(positionX, positionY, false, true, 'P', Color.RED)
         {
-            this.healthPoints = 1000;
-            this.swordType = Material.BRONZE;
+            HealthPoints = 1000;
+            Color = Color.BRONZE;
         }
-        public Player(uint positionX, uint positionY, bool isPassable, bool isVisible, char mapRepresentation)
-            : base(positionX, positionY, isPassable, isVisible, mapRepresentation) { }
+        public Player(uint positionX, uint positionY, bool isPassable, bool isVisible, char mapRepresentation, Color color)
+            : base(positionX, positionY, isPassable, isVisible, mapRepresentation, color) { }
     }
 }

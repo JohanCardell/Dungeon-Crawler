@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Laboration_4
 {
+    public enum Color {NONE, BRONZE, SILVER, GOLD, GREY, GREEN, RED }
     internal enum Tile {NULL, FLOOR, WALL, BOUNDRY, DOOR }
-    internal enum Material { NONE , BRONZE, SILVER, GOLD }
     internal enum State { MENU, LOADING, PLAYING, GAMEOVER }
 
     class Program

@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Laboration_4
 {
-    abstract class Exit : DungeonTile, IInteractable
+    class Exit : GameAsset, IInteractable
     {
-        public Exit(uint positionX, uint positionY, bool isPassable, bool isVisible) 
-            : this(positionX, positionY, isPassable, isVisible, 'E') { }
-        public Exit(uint positionX, uint positionY, bool isPassable, bool isVisible, char mapRepresentation) 
-            : base(positionX, positionY, isPassable, isVisible, mapRepresentation) { }
+        public Exit(uint positionX, uint positionY) 
+            : this(positionX, positionY, true, false, 'E', Color.NONE) { }
+        public Exit(uint positionX, uint positionY, bool isPassable, bool isVisible, char mapRepresentation, Color color) 
+            : base(positionX, positionY, isPassable, isVisible, mapRepresentation, color) { }
 
         public void Interact(Player player) { }
     }

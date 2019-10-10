@@ -38,14 +38,26 @@ namespace Laboration_4
                     else if (gameWorld[row, column] == ' ')
                     {
                         gameAssets.Add(new Floor(column, row));
+
+                    } else if (gameWorld[row, column] == 'E')
+                    {
+                        gameAssets.Add(new Exit(column, row));
                     }
                     else if (gameWorld[row, column] == 'X')
                     {
                         gameAssets.Add(new Boundary(column, row));
                     }
+                    else if (gameWorld[row, column] == 'S')
+                    {
+                        gameAssets.Add(new Door(column, row, Color.SILVER));
+                    }
                     else if (gameWorld[row, column] == 'D')
                     {
-                        gameAssets.Add(new Door(column, row, Material.NONE));
+                        gameAssets.Add(new Door(column, row, Color.NONE));
+                    }
+                    else if (gameWorld[row, column] == 'B')
+                    {
+                        gameAssets.Add(new Door(column, row, Color.BRONZE));
                     }
                     else if (gameWorld[row, column] == 'M')
                     {
@@ -53,7 +65,7 @@ namespace Laboration_4
                     }
                     else if (gameWorld[row, column] == 'C')
                     {
-                        gameAssets.Add(new Chest(column, row, Material.NONE));
+                        gameAssets.Add(new Chest(column, row, Color.GOLD));
                     }
                     else if (gameWorld[row, column] == 'P')
                     {

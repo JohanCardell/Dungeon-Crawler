@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace Laboration_4
 {
-    class Wall:DungeonTile
+    class Wall: GameAsset
     {
         const char WallmapRepresentation = '#';
         public Wall(uint positionX, uint positionY) 
-            : this(positionX, positionY, false , false, WallmapRepresentation) { }
+            : this(positionX, positionY, false , false, WallmapRepresentation, Color.GREY) { }
 
-        public Wall(uint positionX, uint positionY, bool isPassable,bool isVisible, char mapRepresentation) 
-            : base(positionX, positionY, isPassable,isVisible, mapRepresentation) { }
+        public Wall(uint positionX, uint positionY, bool isPassable,bool isVisible, char mapRepresentation, Color color) 
+            : base(positionX, positionY, isPassable,isVisible, mapRepresentation, color) { }
         
     }
 }

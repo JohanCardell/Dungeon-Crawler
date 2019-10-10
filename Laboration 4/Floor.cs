@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Laboration_4
 {
-    class Floor : DungeonTile
+    class Floor : GameAsset
     {
         public Floor(uint positionX, uint positionY) 
-            :this(positionX, positionY, true, false, ' ') {}
-        public Floor(uint positionX, uint positionY, bool isPassable, bool isVisible, char mapRepresentation) 
-            : base(positionX, positionY, isPassable, isVisible, mapRepresentation) { }
+            :this(positionX, positionY, true, false, ' ', Color.NONE) {}
+        public Floor(uint positionX, uint positionY, bool isPassable, bool isVisible, char mapRepresentation, Color color) 
+            : base(positionX, positionY, isPassable, isVisible, mapRepresentation, color) { }
     }
 }
