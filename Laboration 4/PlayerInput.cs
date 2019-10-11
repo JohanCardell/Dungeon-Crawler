@@ -3,16 +3,17 @@
 namespace Laboration_4
 {
     public enum DirectionKey { Up, Down, Left, Right, NoDirection }
-    class MovementInput
+    class PlayerInput
     {
         public static DirectionKey Direction()
         {
             bool tryAgain;
-            do {
-            tryAgain = false;
-            Console.WriteLine("Input: W,A,S,D");
-            ConsoleKeyInfo UserInput = Console.ReadKey();
-            Console.Clear();
+            do
+            {
+                tryAgain = false;
+                Console.WriteLine("Input: W,A,S,D");
+                ConsoleKeyInfo UserInput = Console.ReadKey();
+                Console.Clear();
                 switch (UserInput.Key)
                 {
                     case ConsoleKey.W:
@@ -30,5 +31,24 @@ namespace Laboration_4
                 }
             } while (tryAgain);
         }
+        public static void DrinkPotion(Player player)
+        {
+            foreach (var potion in player.inventory.potions)
+                {
+                if (player.MaxHealthPoints - player.CurrentHealthPoints > potion.PotionPotency)
+                {
+                    player.CurrentHealthPoints +=potion.PotionPotency;
+                }
+                else
+                {
+                    player.CurrentHealthPoints = player.MaxHealthPoints;
+                }
+             break;
+            }
+
+
+
+        }
+
     }
 }

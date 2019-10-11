@@ -56,6 +56,7 @@
     <Compile Include="GameState.cs" />
     <Compile Include="GameOverState.cs" />
     <Compile Include="GoldKey.cs" />
+    <Compile Include="HealthPotion.cs" />
     <Compile Include="Inventory.cs" />
     <Compile Include="BronzeKey.cs" />
     <Compile Include="MenuState.cs" />
@@ -72,7 +73,7 @@
     <Compile Include="Floor.cs" />
     <Compile Include="Loot.cs" />
     <Compile Include="GameObject.cs" />
-    <Compile Include="MovementInput.cs" />
+    <Compile Include="PlayerInput.cs" />
     <Compile Include="MovementLogic.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />

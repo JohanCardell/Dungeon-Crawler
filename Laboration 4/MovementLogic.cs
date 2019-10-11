@@ -7,7 +7,7 @@ namespace Laboration_4
     {
         public static TargetPosition GetTargetPosition(GameAsset intruderGameAsset)
         {
-            DirectionKey directionKey = MovementInput.Direction();
+            DirectionKey directionKey = PlayerInput.Direction();
             TargetPosition targetPosition = new TargetPosition(0, 0);
 
             switch (directionKey)
