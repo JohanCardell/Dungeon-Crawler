@@ -11,7 +11,6 @@ namespace Laboration_4
         }
         public Chest(uint positionX, uint positionY, bool isPassable, bool isVisible, char mapRepresentation, Color color)
             : base(positionX, positionY, isPassable, isVisible, mapRepresentation, color) { }
-
         public string Interact(Player player)
         {
             GameSession gameSession = new GameSession();
@@ -50,10 +49,6 @@ namespace Laboration_4
             }
             return message ;
         }
-
-        void IInteractable.Interact(Player player)
-        {
-
-        }
+        void IInteractable.Interact(Player player) { }
     }
 }

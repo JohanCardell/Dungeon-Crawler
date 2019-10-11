@@ -13,10 +13,12 @@
         : this(positionX, positionY, false, false, 'p', Color.DARKRED) { }//Game World symbol: 'p'
         public HealthPotion(uint positionX, uint positionY, bool isPassable, bool isVisible, char mapRepresentation, Color color)
         : base(positionX, positionY, isPassable, isVisible, mapRepresentation, color) { }
-        public void Interact(Player player)
+        public string Interact(Player player)
         {
             player.inventory.potions.Add(this);
             this.IsPassable = true;
+            string message = "You picked up a health potion";
+            return message;
         }
     }
 }
