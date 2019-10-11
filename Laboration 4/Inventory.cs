@@ -1,4 +1,6 @@
-﻿namespace Laboration_4
+﻿using System.Collections.Generic;
+
+namespace Laboration_4
 {
 
     public class Inventory
@@ -8,6 +10,7 @@
         private uint numberOfGoldKeys;
         private uint numberOfHealthPotions;
         private Color sword;
+        public List<Loot> keys = new List<Loot>();
         #region Getters and setters
         public uint NumberOfBronzeKeys
         {
@@ -35,6 +38,5 @@
             set => numberOfHealthPotions = value;
         }
         #endregion
-        
     }
 }

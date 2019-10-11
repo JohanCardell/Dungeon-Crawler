@@ -11,7 +11,7 @@ namespace Laboration_4
         public Chest(uint positionX, uint positionY,Color color) 
             : this(positionX, positionY, false, false, 'C', color)
         {
-            Color = color;
+            AssetColor = color;
         }
         public Chest(uint positionX, uint positionY, bool isPassable, bool isVisible, char mapRepresentation, Color color) 
             : base(positionX, positionY, isPassable, isVisible, mapRepresentation, color) { }

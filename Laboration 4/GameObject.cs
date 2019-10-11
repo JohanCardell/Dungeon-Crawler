@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Laboration_4
 {
-    abstract class GameObject : GameAsset, IInteractable
+    abstract class GameObject : GameAsset
     {
         protected GameObject(uint positionX, uint positionY, bool isPassable, bool isVisible, char mapRepresentation, Color color) 
             : base(positionX, positionY, isPassable, isVisible, mapRepresentation, color) { }
 
-        public void Interact(Player player) { }
+        //public void Interact(Player player) { }
     }
 }
