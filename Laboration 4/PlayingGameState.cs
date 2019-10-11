@@ -15,7 +15,8 @@ namespace Laboration_4
         while (gameSession.GameOver == false)
             {
                 Player player = gameSession.GetPlayer();
-                MapLogic.RenderLevel(gameSession);
+                Rendering.Level(gameSession);
+
                 TargetPosition targetPosition = MovementLogic.GetTargetPosition(gameSession.GetPlayer());
                 MovementLogic.InteractWithTarget(targetPosition, gameSession);
                 MovementLogic.Move(player, targetPosition, gameSession);

@@ -67,7 +67,7 @@ namespace Laboration_4
                     {
                         gameAssets.Add(new Chest(column, row, Color.GOLD));
                     }
-                    else if (gameWorld[row, column] == 'P')
+                    else if (gameWorld[row, column] == '§')
                     {
                         gameAssets.Add(new Player(column, row));
                     }

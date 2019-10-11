@@ -9,6 +9,8 @@ namespace Laboration_4
         public char[,] CurrentGameWorld { get; set; }
         public List<GameAsset> CurrentGameAssets { get; set; }
         public bool GameOver { get; set; }
+        public State NewGameState{ get; set; }
+        public StateMachine StateMachine { get; set; }
         public GameSession() { }
 
         public Player GetPlayer()

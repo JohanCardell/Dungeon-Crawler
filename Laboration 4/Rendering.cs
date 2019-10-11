@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Laboration_4
 {
-    class MapLogic
+    class Rendering
     {
-        public static void RenderLevel(GameSession gameSession)
+        public static void Level(GameSession gameSession)
         {
             RemoveFogOfWar(gameSession);
             List<GameAsset> gameAssets = gameSession.CurrentGameAssets;
@@ -74,6 +74,13 @@ namespace Laboration_4
                     }
                 }
             }
+        }
+        static void PlayerInfoBar(GameSession gameSession)
+        {
+            Player player = gameSession.GetPlayer();
+            String PlayerHealth = player.CurrentHealthPoints + "/" + player.MaxHealthPoints;
+            String NumberOfPotions = player.inventory.potions
+
         }
     }
 }

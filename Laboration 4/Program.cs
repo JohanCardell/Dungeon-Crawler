@@ -7,28 +7,27 @@ using System.Threading.Tasks;
 namespace Laboration_4
 {
     public enum Color {NONE, BRONZE, SILVER, GOLD, GREY, GREEN, RED }
-    internal enum Tile {NULL, FLOOR, WALL, BOUNDRY, DOOR }
-    internal enum State { MENU, LOADING, PLAYING, GAMEOVER }
+    public enum Tile {NULL, FLOOR, WALL, BOUNDRY, DOOR }
+    public enum State { MENU, LOADING, PLAYING, GAMEOVER, QUIT }
 
     class Program
     {
         public static void Main(string[] args)
         {
             var gameSession = new GameSession();
-            var stateMachine = new StateMachine();
-            stateMachine.states = new List<GameState>
+            gameSession.StateMachine = new StateMachine();
+            gameSession.StateMachine.states = new List<GameState>
             {
-                new MenuState(gameSession), 
+                new MenuState(gameSession),
                 new LoadingGameState(gameSession),
                 new PlayingGameState(gameSession),
                 new GameOverState(gameSession)
             };
-            stateMachine.EnterState(State.MENU, gameSession);
-            stateMachine.EnterState(State.LOADING, gameSession);
-            stateMachine.EnterState(State.PLAYING, gameSession);
-            stateMachine.EnterState(State.GAMEOVER, gameSession);
-            
-            Console.ReadKey(true);
+            gameSession.NewGameState = State.MENU;
+            while (gameSession.NewGameState != State.QUIT)
+            {
+                gameSession.StateMachine.EnterNewState(gameSession);
+            }
         }
     }
 }

@@ -2,17 +2,15 @@
 
 namespace Laboration_4
 {
-    internal class StateMachine
+    public class StateMachine
     {
-        internal System.Collections.Generic.List< GameState> states;
+        public System.Collections.Generic.List< GameState> states;
 
-        public StateMachine()
-        {
-        }
+        public StateMachine() { }
 
-        public void EnterState(State gameState, GameSession gameSession)
+        public void EnterNewState(GameSession gameSession)
         {
-            switch (gameState)
+            switch (gameSession.NewGameState)
             {
                 case State.MENU:
                     states[0].Start(gameSession);

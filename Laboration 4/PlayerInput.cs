@@ -3,7 +3,7 @@
 namespace Laboration_4
 {
     public enum DirectionKey { Up, Down, Left, Right, NoDirection }
-    class MovementInput
+    class PlayerInput
     {
         public static DirectionKey Direction()
         {
@@ -11,9 +11,9 @@ namespace Laboration_4
             do {
             tryAgain = false;
             Console.WriteLine("Input: W,A,S,D");
-            ConsoleKeyInfo UserInput = Console.ReadKey();
+            ConsoleKeyInfo userInput = Console.ReadKey();
             Console.Clear();
-                switch (UserInput.Key)
+                switch (userInput.Key)
                 {
                     case ConsoleKey.W:
                         return DirectionKey.Up;
@@ -29,6 +29,12 @@ namespace Laboration_4
                         return DirectionKey.NoDirection;
                 }
             } while (tryAgain);
+        }
+
+        public static void DrinkPotion()
+        {
+            Player player1;
+
         }
     }
 }

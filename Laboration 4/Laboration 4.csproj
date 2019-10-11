@@ -65,14 +65,14 @@
     <Compile Include="DungeonTile.cs" />
     <Compile Include="LoadingState.cs" />
     <Compile Include="GameWorld.cs" />
-    <Compile Include="MapLogic.cs" />
+    <Compile Include="Rendering.cs" />
     <Compile Include="Monster.cs" />
     <Compile Include="Door.cs" />
     <Compile Include="Exit.cs" />
     <Compile Include="Floor.cs" />
     <Compile Include="Loot.cs" />
     <Compile Include="GameObject.cs" />
-    <Compile Include="MovementInput.cs" />
+    <Compile Include="PlayerInput.cs" />
     <Compile Include="MovementLogic.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />

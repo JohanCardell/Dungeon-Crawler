@@ -16,6 +16,8 @@ namespace Laboration_4
             set => healthPoints = value;
         }
         public int DamageOutput { get; internal set; }
+        public int CurrentHealthPoints { get; internal set; }
+        public object MaxHealthPoints { get; internal set; }
 
         //public Material SwordType
         //{
@@ -23,7 +25,7 @@ namespace Laboration_4
         //    set => swordType = SwordType;
         //}
         public Player(uint positionX, uint positionY)
-             : this(positionX, positionY, false, true, 'P', Color.RED)
+             : this(positionX, positionY, false, true, '§', Color.RED)
         {
             HealthPoints = 1000;
             AssetColor = Color.BRONZE;
