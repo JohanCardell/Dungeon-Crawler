@@ -33,6 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationCore" />
     <Reference Include="System" />
     <Reference Include="System.Collections.NonGeneric, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Collections.NonGeneric.4.3.0\lib\net46\System.Collections.NonGeneric.dll</HintPath>
@@ -54,8 +55,9 @@
     <Compile Include="GameSession.cs" />
     <Compile Include="GameState.cs" />
     <Compile Include="GameOverState.cs" />
+    <Compile Include="GoldKey.cs" />
     <Compile Include="Inventory.cs" />
-    <Compile Include="KeyLoot.cs" />
+    <Compile Include="BronzeKey.cs" />
     <Compile Include="MenuState.cs" />
     <Compile Include="PlayingGameState.cs" />
     <Compile Include="GameAsset.cs" />
@@ -75,6 +77,7 @@
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SilverKey.cs" />
     <Compile Include="StateMachine.cs" />
     <Compile Include="Sword.cs" />
     <Compile Include="TargetPosition.cs" />

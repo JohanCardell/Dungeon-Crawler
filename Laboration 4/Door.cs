@@ -1,4 +1,6 @@
-﻿namespace Laboration_4
+﻿using System.Windows.Media;
+
+namespace Laboration_4
 {
     class Door : GameObject, IInteractable
     {
@@ -16,7 +18,7 @@
         {
             for (int color = 0; color < 4; color++)
             {
-                if ((Color)color == AssetColor && player.inventory.HasBronzeKeys)
+                if ((Color)color == AssetColor && player.inventory.keys.Find((Color)Color<Loot>)
                 {
 
                 }
