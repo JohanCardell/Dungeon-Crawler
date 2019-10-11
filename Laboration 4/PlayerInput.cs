@@ -31,8 +31,9 @@ namespace Laboration_4
                 }
             } while (tryAgain);
         }
-        public static void DrinkPotion(Player player)
+        public static string DrinkPotion(Player player)
         {
+            string message = "";
             foreach (var potion in player.inventory.potions)
                 {
                 if (player.MaxHealthPoints - player.CurrentHealthPoints > potion.PotionPotency)
@@ -43,11 +44,11 @@ namespace Laboration_4
                 {
                     player.CurrentHealthPoints = player.MaxHealthPoints;
                 }
+                player.inventory.potions.Remove(potion);
+                message = "You drank a helath potion.";
              break;
             }
-
-
-
+            return message;
         }
 
     }
