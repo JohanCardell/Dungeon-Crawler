@@ -44,6 +44,5 @@ namespace Laboration_4
             this.IsPassable = true;
             return message;
         }
-        void IInteractable.Interact(Player player){ }
     }
 }

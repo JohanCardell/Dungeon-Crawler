@@ -37,6 +37,5 @@
             }
             return message;
         }
-        void IInteractable.Interact(Player player) { }
     }
 }
