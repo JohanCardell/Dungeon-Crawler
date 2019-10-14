@@ -48,25 +48,49 @@ namespace Laboration_4
                     {
                         gameAssets.Add(new Boundary(column, row));
                     }
+                    else if (gameWorld[row, column] == 'G')
+                    {
+                        gameAssets.Add(new Door(column, row, Color.GOLD));
+                    }
                     else if (gameWorld[row, column] == 'S')
                     {
                         gameAssets.Add(new Door(column, row, Color.SILVER));
-                    }
-                    else if (gameWorld[row, column] == 'D')
-                    {
-                        gameAssets.Add(new Door(column, row, Color.NONE));
                     }
                     else if (gameWorld[row, column] == 'B')
                     {
                         gameAssets.Add(new Door(column, row, Color.BRONZE));
                     }
+                    else if (gameWorld[row, column] == 'D')
+                    {
+                        gameAssets.Add(new Door(column, row, Color.NONE));
+                    }
                     else if (gameWorld[row, column] == 'M')
                     {
                         gameAssets.Add(new Monster(column, row));
                     }
-                    else if (gameWorld[row, column] == 'C')
+                    else if (gameWorld[row, column] == 'j')
                     {
                         gameAssets.Add(new Chest(column, row, Color.GOLD));
+                    }
+                    else if (gameWorld[row, column] == 'k')
+                    {
+                        gameAssets.Add(new Chest(column, row, Color.SILVER));
+                    }
+                    else if (gameWorld[row, column] == 'l')
+                    {
+                        gameAssets.Add(new Chest(column, row, Color.BRONZE));
+                    }
+                    else if (gameWorld[row, column] == 'g')
+                    {
+                        gameAssets.Add(new GoldKey(column, row));
+                    }
+                    else if (gameWorld[row, column] == 's')
+                    {
+                        gameAssets.Add(new SilverKey(column, row));
+                    }
+                    else if (gameWorld[row, column] == 'b')
+                    {
+                        gameAssets.Add(new BronzeKey(column, row));
                     }
                     else if (gameWorld[row, column] == '§')
                     {

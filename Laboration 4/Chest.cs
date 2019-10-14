@@ -14,40 +14,77 @@ namespace Laboration_4
         public string Interact(Player player)
         {
             GameSession gameSession = GameSession.Instance;
-            const int treasureValue = 10;
+            //const int treasureValue = 10;
             Random random = new Random();
             int diceroll = random.Next(1, 10);
             string message = "You don't have a matching key.";
             foreach (var key in player.inventory.keys)
             {
-                if (key.AssetColor < this.AssetColor)
+                void ChestReward(int diceScore,
+                    int diceLowHelthPotion,int diceHighHelthPotion,
+                    int diceLowSilverSword,int diceHighSilverSword,
+                    int tressureValue)
                 {
                     message = $"You opened a {this.AssetColor} chest, and a {key.AssetColor} key was removed from your inventory. ";
                     player.inventory.keys.Remove(key);//use key
-                    if (diceroll <= 5)
+                    if (diceroll <= diceScore)
                     {
-                        gameSession.Score += treasureValue;
-                        message += $"Your score increased by {treasureValue}";
+                        gameSession.Score +=tressureValue;
+                        message += $"Your score increased by {tressureValue}";
                     }
-                    else if (diceroll >= 6 && diceroll <= 7)
+                    else if (diceroll >= diceLowHelthPotion && diceroll <= diceHighHelthPotion)
                     {
                         player.inventory.potions.Add(new HealthPotion());
                         message += $"Your got a health potion.";
                     }
-                    else if (diceroll >= 8 && diceroll <= 9)
+                    else if (diceroll >= diceLowSilverSword && diceroll <= diceHighSilverSword)
                     {
                         player.inventory.swords.Add(new Sword(Color.SILVER));
-                        message += $"Your current sword has been updated to a {this.AssetColor} sword.";
+                        message += $"Your current sword has been upgraded to a {this.AssetColor} sword.";
                     }
                     else
                     {
                         player.inventory.swords.Add(new Sword(Color.GOLD));
-                        message += $"Your current sword has been updated to a {this.AssetColor} sword.";
+                        message += $"Your current sword has been upgraded to a {this.AssetColor} sword.";
                     }
+                }
+                if (key.AssetColor == this.AssetColor && this.AssetColor == Color.BRONZE)
+                {
+                    ChestReward(5,6,7,8,9,10);
+                    //message = $"You opened a {this.AssetColor} chest, and a {key.AssetColor} key was removed from your inventory. ";
+                    //player.inventory.keys.Remove(key);//use key
+                    //if (diceroll <= 5)
+                    //{
+                    //    gameSession.Score += treasureValue;
+                    //    message += $"Your score increased by {treasureValue}";
+                    //}
+                    //else if (diceroll >= 6 && diceroll <= 7)
+                    //{
+                    //    player.inventory.potions.Add(new HealthPotion());
+                    //    message += $"Your got a health potion.";
+                    //}
+                    //else if (diceroll >= 8 && diceroll <= 9)
+                    //{
+                    //    player.inventory.swords.Add(new Sword(Color.SILVER));
+                    //    message += $"Your current sword has been updated to a {this.AssetColor} sword.";
+                    //}
+                    //else
+                    //{
+                    //    player.inventory.swords.Add(new Sword(Color.GOLD));
+                    //    message += $"Your current sword has been updated to a {this.AssetColor} sword.";
+                    //}
+                }
+                else if (key.AssetColor == this.AssetColor && this.AssetColor == Color.SILVER)
+                {
+                    ChestReward(3,4,6,7,8,25);
+                }
+                else if (key.AssetColor == this.AssetColor && this.AssetColor == Color.GOLD)
+                {
+                    ChestReward(2,3,5,6,8,50);
                 }
                 break;
             }
-            return message ;
+            return message;
         }
     }
 }
