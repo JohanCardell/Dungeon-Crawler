@@ -58,6 +58,13 @@ namespace Laboration_4
                 Console.WriteLine();
             }
         }
+
+        public static void PrintInteractableMessage(GameSession gameSession)
+        {
+            Console.WriteLine(gameSession.InteractableMessage);
+            gameSession.InteractableMessage = "";
+        }
+
         static void RemoveFogOfWar(GameSession gameSession)
         {
             foreach (GameAsset element in gameSession.CurrentGameAssets)
@@ -84,12 +91,15 @@ namespace Laboration_4
             int numberOfGoldKeys = player.inventory.keys.Count(Loot => Loot.AssetColor is Color.GOLD);
             Console.WriteLine("Health: {0}      Potions: {1}      Bronze Keys: {2}      Silver Keys: {3}      Gold Keys: {4}      Moves: {5}",
                                 playerHealth, numberOfPotions, numberOfBronzeKeys, numberOfSilverKeys, numberOfGoldKeys, gameSession.CurrentMoves) ;
-            Console.WriteLine("Commands:");
-            Console.WriteLine("Up: W");
-            Console.WriteLine("Down: S");
-            Console.WriteLine("Left: A");
-            Console.WriteLine("Right: D");
-            Console.WriteLine("Use potion: P");
+            Console.WriteLine("Directional Keys:    Use potion: P");
+            Console.WriteLine("  W");
+            Console.WriteLine("A   S");
+            Console.WriteLine("  D");
+            //Console.WriteLine("Up: W");
+            //Console.WriteLine("Down: S");
+            //Console.WriteLine("Left: A");
+            //Console.WriteLine("Right: D");
+           // Console.WriteLine("Use potion: P");
             Console.WriteLine("Menu: M");
         }
     }

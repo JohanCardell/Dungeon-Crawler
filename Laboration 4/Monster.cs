@@ -24,7 +24,7 @@ namespace Laboration_4
             : this(positionX, positionY, false, false, 'M', Color.GREEN)
         {
             this.healthPoints = 100;
-            this.damageOutput = 10;
+            this.damageOutput = 20;
         }
         public Monster(uint positionX, uint positionY, bool isPassable, bool isVisible, char mapRepresentation, Color color)
             : base(positionX, positionY, isPassable, isVisible, mapRepresentation, color) { }
@@ -38,12 +38,11 @@ namespace Laboration_4
                 this.HealthPoints -= this.HealthPoints - player.DamageOutput + rng.Next(0, 6);
                 player.CurrentHealthPoints -= this.DamageOutput + rng.Next(0, 6);
                 Console.Clear();
-                message = $"You recieved{this.DamageOutput + rng.Next(0, 6)} damage from the monster, and dealt {player.DamageOutput + rng.Next(0, 6)} damage to the monster. ";
+                message = $"You recieved {this.DamageOutput + rng.Next(0, 20)} damage from the monster, and dealt {player.DamageOutput + rng.Next(0, 6)} damage to the monster. ";
                 if (player.CurrentHealthPoints <= 0 || this.HealthPoints <= 0) inCombat = false;
             }
             this.IsPassable = true;
             return message;
         }
-        void IInteractable.Interact(Player player){ }
     }
 }

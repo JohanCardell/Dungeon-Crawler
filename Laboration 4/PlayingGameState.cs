@@ -12,6 +12,7 @@ namespace Laboration_4
                 Console.Clear();
                 Rendering.Level(gameSession);
                 Rendering.PlayerInfoBar(gameSession);
+                Rendering.PrintInteractableMessage(gameSession);
                 PlayerAction.PerformAction(PlayerAction.PlayerInput(), gameSession);
                 if (gameSession.Player.CurrentHealthPoints <= 0)
                 {
