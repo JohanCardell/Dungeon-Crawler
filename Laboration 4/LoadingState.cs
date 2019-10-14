@@ -8,18 +8,16 @@ namespace Laboration_4
 {
     public class LoadingGameState:  GameState
     {
-        public static bool IsLoaded { get; set; }
-
         public LoadingGameState(GameSession gameSession): base(gameSession) { }
-
         public override void Start(GameSession gameSession)
         {
             gameSession.CurrentGameWorld = GameWorld.initialGameWorld;
             SetMapDimensions (gameSession);
             gameSession.CurrentGameAssets = GenerateGameAssets(gameSession);
             gameSession.Player = gameSession.GetPlayerFromList();
-            IsLoaded = true;
+            //IsLoaded = true;
             gameSession.CurrentGameState = State.PLAYING;
+
         }
         public void SetMapDimensions(GameSession gameSession)
         {
@@ -30,9 +28,9 @@ namespace Laboration_4
         {
             char[,] gameWorld = gameSession.CurrentGameWorld;
             List<GameAsset> gameAssets = new List<GameAsset>();
-            for (uint row = 0; row < gameWorld.GetLength(0); row++)
+            for (int row = 0; row < gameWorld.GetLength(0); row++)
             {
-                for (uint column = 0; column < gameWorld.GetLength(1); column++)
+                for (int column = 0; column < gameWorld.GetLength(1); column++)
                 {
                     if (gameWorld[row, column] == '#')
                     {

@@ -8,7 +8,7 @@ namespace Laboration_4
 {
     public class Loot:GameObject
     {
-        public Loot(uint positionX, uint positionY, bool isPassable, bool isVisible, char mapRepresentation, Color color) 
+        public Loot(int positionX, int positionY, bool isPassable, bool isVisible, char mapRepresentation, Color color) 
             : base(positionX, positionY, isPassable, isVisible, mapRepresentation, color) { }
 
     }

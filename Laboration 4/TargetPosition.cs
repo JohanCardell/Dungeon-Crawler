@@ -8,18 +8,18 @@ namespace Laboration_4
 {
     class TargetPosition
     {
-        private uint positionX;
-        private uint positionY;
-        public uint PositionX
+        private int positionX;
+        private int positionY;
+        public int PositionX
         {
             get => positionX;
             set => positionX = value;
-        }public uint PositionY
+        }public int PositionY
         {
             get => positionY;
             set => positionY = value;
         }
-        public TargetPosition(uint positionX, uint positionY)
+        public TargetPosition(int positionX, int positionY)
         {
             PositionX = positionX;
             PositionY = positionY;

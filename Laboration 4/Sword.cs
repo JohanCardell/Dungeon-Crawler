@@ -4,7 +4,7 @@
     {
         public Sword(Color color)
     : this(0, 0, color) { }
-        public Sword(uint positionX, uint positionY, Color color)
+        public Sword(int positionX, int positionY, Color color)
     : base(positionX, positionY, false, false, 'w', color)
         { }
         public string Interact(Player player)

@@ -4,10 +4,10 @@
     {
         public GoldKey(): 
             this(0, 0, false, false, 'F', Color.GOLD) { }//Game World symbol: 'g'
-        public GoldKey(uint positionX, uint positionY)
+        public GoldKey(int positionX, int positionY)
         : this(positionX, positionY, false, false, 'F', Color.GOLD) { }//Game World symbol: 'g'
 
-        public GoldKey(uint positionX, uint positionY, bool isPassable, bool isVisible, char mapRepresentation, Color color)
+        public GoldKey(int positionX, int positionY, bool isPassable, bool isVisible, char mapRepresentation, Color color)
         : base(positionX, positionY, isPassable, isVisible, mapRepresentation, color) { }
 
         public string Interact(Player player) 

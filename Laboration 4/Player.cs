@@ -23,13 +23,13 @@
         //    get => swordType;
         //    set => swordType = SwordType;
         //}
-        public Player(uint positionX, uint positionY)
+        public Player(int positionX, int positionY)
              : this(positionX, positionY, false, true, '§', Color.RED)
         {
             CurrentHealthPoints = 1000;
             AssetColor = Color.BRONZE;
         }
-        public Player(uint positionX, uint positionY, bool isPassable, bool isVisible, char mapRepresentation, Color color)
+        public Player(int positionX, int positionY, bool isPassable, bool isVisible, char mapRepresentation, Color color)
             : base(positionX, positionY, isPassable, isVisible, mapRepresentation, color) { }
     }
 }

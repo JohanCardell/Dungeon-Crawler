@@ -11,20 +11,23 @@ namespace Laboration_4
         {
             Console.Clear();
             Console.WriteLine("The Dungeon");
-            if (LoadingGameState.IsLoaded == true)
+            if (gameSession.LevelIsRendered == true)
             {
                 Console.WriteLine("C)ontinue");
+
             }
             Console.WriteLine("N)ew Game");
             Console.WriteLine("Q)uit");
-            ConsoleKeyInfo userInput = Console.ReadKey();
 
+            var userInput = Console.ReadKey(true);
+            Console.Clear();
             switch (userInput.Key)
             {
                 case ConsoleKey.C:
-                    if (LoadingGameState.IsLoaded == true)
+                    if (gameSession.LevelIsRendered == true)
                     {
                         gameSession.CurrentGameState = State.PLAYING;
+                        gameSession.LevelIsRendered = false;
                         break;
                     }
                     else goto default;
@@ -45,8 +48,6 @@ namespace Laboration_4
                 default:
                     break;
             }
-           
-
         }
     }
 }

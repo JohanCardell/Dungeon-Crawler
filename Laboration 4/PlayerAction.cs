@@ -2,12 +2,12 @@
 
 namespace Laboration_4
 {
-    public enum HotKey { NONE, UP, DOWN, LEFT, RIGHT, DRINKPOTION, MAINMENU}
+    public enum Input { NONE, UP, DOWN, LEFT, RIGHT, DRINKPOTION, MAINMENU}
     class PlayerAction
     {
         public static string DrinkPotion(Player player)
         {
-            String message = "";
+            string message = "";
             foreach (HealthPotion potion in player.inventory.potions)
             {
                 if (player.MaxHealthPoints - player.CurrentHealthPoints > potion.PotionPotency)
@@ -25,50 +25,51 @@ namespace Laboration_4
             return message;
         }
 
-        public static HotKey PlayerInput()
+        public static Input GetInput()
         {
-            bool tryAgain;
-            do {
-            tryAgain = false;
-            ConsoleKeyInfo userInput = Console.ReadKey();
-            Console.Clear();
-                switch (userInput.Key)
+            while (true)
+            {
+                var key = Console.ReadKey(true);
+                switch (key.Key)
                 {
                     case ConsoleKey.W:
-                        return HotKey.UP;
+                    case ConsoleKey.UpArrow:                       
+                        return Input.UP;
                     case ConsoleKey.A:
-                        return HotKey.LEFT;
+                    case ConsoleKey.LeftArrow:
+                        return Input.LEFT;
                     case ConsoleKey.S:
-                        return HotKey.DOWN;
+                    case ConsoleKey.DownArrow:
+                        return Input.DOWN;
                     case ConsoleKey.D:
-                        return HotKey.RIGHT;
+                    case ConsoleKey.RightArrow:
+                        return Input.RIGHT;
                     case ConsoleKey.P:
-                        return HotKey.DRINKPOTION;
+                        return Input.DRINKPOTION;
                     case ConsoleKey.M:
-                        return HotKey.MAINMENU;
+                        return Input.MAINMENU;
                     default:
-                        tryAgain = true;
-                        return HotKey.NONE;
+                        break;
                 }
-            } while (tryAgain);
+            }
         }
 
-        public static void PerformAction(HotKey playerAction, GameSession gameSession)
+        public static void PerformAction(Input playerAction, GameSession gameSession)
         {
             switch (playerAction)
             {
-                case HotKey.UP:
-                case HotKey.DOWN:
-                case HotKey.LEFT:
-                case HotKey.RIGHT:
+                case Input.UP:
+                case Input.DOWN:
+                case Input.LEFT:
+                case Input.RIGHT:
                     TargetPosition targetPosition = MovementLogic.GetTargetPosition(gameSession.Player, playerAction);
                     MovementLogic.InteractWithTarget(targetPosition, gameSession);
                     MovementLogic.Move(gameSession.Player, targetPosition, gameSession);
                     break;
-                case HotKey.DRINKPOTION:
+                case Input.DRINKPOTION:
                     DrinkPotion(gameSession.Player);
                     break;
-                case HotKey.MAINMENU:
+                case Input.MAINMENU:
                     gameSession.CurrentGameState = State.MENU;
                     break;
                 default:

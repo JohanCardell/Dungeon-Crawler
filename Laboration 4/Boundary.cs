@@ -9,9 +9,9 @@ namespace Laboration_4
     class Boundary : GameAsset
     {
         public const char mapRepresentation = 'X';
-        public Boundary(uint positionX, uint positionY)
+        public Boundary(int positionX, int positionY)
             : this(positionX, positionY, false, true, mapRepresentation, Color.NONE) { }
-        public Boundary(uint positionX, uint positionY, bool isPassable, bool isVisible, char mapRepresentation, Color color) 
+        public Boundary(int positionX, int positionY, bool isPassable, bool isVisible, char mapRepresentation, Color color) 
             : base(positionX, positionY, isPassable, isVisible, mapRepresentation, color) { }
     }
 }

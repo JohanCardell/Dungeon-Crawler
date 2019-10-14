@@ -2,10 +2,10 @@
 {
     class BronzeKey : Loot, IInteractable
     {
-        public BronzeKey(uint positionX, uint positionY)
+        public BronzeKey(int positionX, int positionY)
         :this(positionX, positionY,false,false,'F',Color.BRONZE){ }//Game World symbol: 'b'
 
-        public BronzeKey(uint positionX, uint positionY, bool isPassable, bool isVisible, char mapRepresentation, Color color)
+        public BronzeKey(int positionX, int positionY, bool isPassable, bool isVisible, char mapRepresentation, Color color)
 : base(positionX, positionY, isPassable, isVisible, mapRepresentation, color) { }
 
         public string Interact(Player player) 
