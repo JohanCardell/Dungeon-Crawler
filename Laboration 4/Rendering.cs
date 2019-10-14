@@ -60,14 +60,13 @@ namespace Laboration_4
         }
         static void RemoveFogOfWar(GameSession gameSession)
         {
-            Player player = gameSession.GetPlayer();
             foreach (GameAsset element in gameSession.CurrentGameAssets)
             {
                 for (int row = -1; row < 2; row++)
                 {
                     for (int column = -1; column < 2; column++)
                     {
-                        if (player.PositionX == element.PositionX + column && player.PositionY == element.PositionY + row)
+                        if (gameSession.Player.PositionX == element.PositionX + column && gameSession.Player.PositionY == element.PositionY + row)
                         {
                             element.IsVisible = true;
                         }
@@ -75,12 +74,23 @@ namespace Laboration_4
                 }
             }
         }
-        static void PlayerInfoBar(GameSession gameSession)
+        public static void PlayerInfoBar(GameSession gameSession)
         {
-            Player player = gameSession.GetPlayer();
-            String PlayerHealth = player.CurrentHealthPoints + "/" + player.MaxHealthPoints;
-            String NumberOfPotions = player.inventory.potions
-
+            Player player = gameSession.Player;
+            String playerHealth = player.CurrentHealthPoints + "/" + player.MaxHealthPoints;
+            int numberOfPotions = player.inventory.potions.Count();
+            int numberOfBronzeKeys = player.inventory.keys.Count(Loot => Loot.AssetColor is Color.BRONZE);
+            int numberOfSilverKeys = player.inventory.keys.Count(Loot => Loot.AssetColor is Color.SILVER);
+            int numberOfGoldKeys = player.inventory.keys.Count(Loot => Loot.AssetColor is Color.GOLD);
+            Console.WriteLine("Health: {0}      Potions: {1}      Bronze Keys: {2}      Silver Keys: {3}      Gold Keys: {4}      Moves: {5}",
+                                playerHealth, numberOfPotions, numberOfBronzeKeys, numberOfSilverKeys, numberOfGoldKeys, gameSession.CurrentMoves) ;
+            Console.WriteLine("Commands:");
+            Console.WriteLine("Up: W");
+            Console.WriteLine("Down: S");
+            Console.WriteLine("Left: A");
+            Console.WriteLine("Right: D");
+            Console.WriteLine("Use potion: P");
+            Console.WriteLine("Menu: M");
         }
     }
 }

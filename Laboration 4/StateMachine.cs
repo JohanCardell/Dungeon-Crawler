@@ -8,9 +8,9 @@ namespace Laboration_4
 
         public StateMachine() { }
 
-        public void EnterNewState(GameSession gameSession)
+        public void RunState(GameSession gameSession)
         {
-            switch (gameSession.NewGameState)
+            switch (gameSession.CurrentGameState)
             {
                 case State.MENU:
                     states[0].Start(gameSession);

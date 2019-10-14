@@ -73,7 +73,7 @@
     <Compile Include="Floor.cs" />
     <Compile Include="Loot.cs" />
     <Compile Include="GameObject.cs" />
-    <Compile Include="PlayerInput.cs" />
+    <Compile Include="PlayerAction.cs" />
     <Compile Include="MovementLogic.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />

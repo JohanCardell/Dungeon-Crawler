@@ -17,8 +17,6 @@
             set => currentHealthPoints = value;
         }
         public int DamageOutput { get; internal set; }
-        public int CurrentHealthPoints { get; internal set; }
-        public object MaxHealthPoints { get; internal set; }
 
         //public Material SwordType
         //{

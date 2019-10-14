@@ -4,19 +4,24 @@ namespace Laboration_4
 {
     public class GameSession
     {
+        public bool Win { get; set; }
+        public int CurrentMoves { get; set; }
         public int MaxMapRows { get; set; }
         public int MaxMapColumns { get; set; }
-        public int Score { get; set; } = 1000;
+        private int score = 1000;
+        public int Score
+        {
+            get => score;
+            set => score = 1000 - CurrentMoves - value;
+        }
         public char[,] CurrentGameWorld { get; set; }
         public List<GameAsset> CurrentGameAssets { get; set; }
-        public bool GameOver { get; set; }
-        public State NewGameState{ get; set; }
+        public State CurrentGameState { get; set; }
         public StateMachine StateMachine { get; set; }
-        public GameSession() { }
-
-        public Player GetPlayer()
+        public Player Player { get; set; }
+        public Player GetPlayerFromList()
         {
-            foreach(var element in CurrentGameAssets)
+            foreach (var element in CurrentGameAssets)
             {
                 if (element is Player)
                 {
@@ -24,6 +29,20 @@ namespace Laboration_4
                 }
             }
             return null;
+        }
+        protected GameSession() { }
+        private static GameSession instance = null;
+        public static GameSession Instance
+        {
+            get
+            {
+                if (GameSession.instance == null)
+                {
+                    GameSession.instance = new GameSession();
+                }
+                return GameSession.instance;
+            }
+            set => instance = value;
         }
 
     }

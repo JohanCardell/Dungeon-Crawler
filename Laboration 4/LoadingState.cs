@@ -8,6 +8,8 @@ namespace Laboration_4
 {
     public class LoadingGameState:  GameState
     {
+        public static bool IsLoaded { get; set; }
+
         public LoadingGameState(GameSession gameSession): base(gameSession) { }
 
         public override void Start(GameSession gameSession)
@@ -15,8 +17,9 @@ namespace Laboration_4
             gameSession.CurrentGameWorld = GameWorld.initialGameWorld;
             SetMapDimensions (gameSession);
             gameSession.CurrentGameAssets = GenerateGameAssets(gameSession);
-            gameSession.GameOver = false;
-            gameSession.GetPlayer();
+            gameSession.Player = gameSession.GetPlayerFromList();
+            IsLoaded = true;
+            gameSession.CurrentGameState = State.PLAYING;
         }
         public void SetMapDimensions(GameSession gameSession)
         {

@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Laboration_4
 {
@@ -12,15 +8,16 @@ namespace Laboration_4
 
         public override void Start(GameSession gameSession)
         {
-        while (gameSession.GameOver == false)
             {
-                Player player = gameSession.GetPlayer();
+                Console.Clear();
                 Rendering.Level(gameSession);
-
-                TargetPosition targetPosition = MovementLogic.GetTargetPosition(gameSession.GetPlayer());
-                MovementLogic.InteractWithTarget(targetPosition, gameSession);
-                MovementLogic.Move(player, targetPosition, gameSession);
-                if (player.CurrentHealthPoints <= 0) gameSession.GameOver = true;
+                Rendering.PlayerInfoBar(gameSession);
+                PlayerAction.PerformAction(PlayerAction.PlayerInput(), gameSession);
+                if (gameSession.Player.CurrentHealthPoints <= 0)
+                {
+                    gameSession.Win = false;
+                    gameSession.CurrentGameState = State.GAMEOVER;
+                }
             }
         }
     }

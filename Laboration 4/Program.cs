@@ -6,17 +6,15 @@ using System.Threading.Tasks;
 
 namespace Laboration_4
 {
-    public enum Color {NONE, BRONZE, SILVER, GOLD, GREY, GREEN, RED,
-        DARKRED
-    }
-    internal enum Tile {NULL, FLOOR, WALL, BOUNDRY, DOOR }
-    internal enum State { MENU, LOADING, PLAYING, GAMEOVER }
+    public enum Color {NONE, BRONZE, SILVER, GOLD, GREY, GREEN, RED, DARKRED }
+    public enum State { MENU, LOADING, PLAYING, GAMEOVER, QUIT }
 
     class Program
     {
-        public static void Main(string[] args)
+        public static bool IsStartMenu = true;
+        public static void Main()
         {
-            var gameSession = new GameSession();
+            GameSession gameSession = GameSession.Instance;
             gameSession.StateMachine = new StateMachine();
             gameSession.StateMachine.states = new List<GameState>
             {
@@ -25,10 +23,18 @@ namespace Laboration_4
                 new PlayingGameState(gameSession),
                 new GameOverState(gameSession)
             };
-            gameSession.NewGameState = State.MENU;
-            while (gameSession.NewGameState != State.QUIT)
+            if ( IsStartMenu == true)
             {
-                gameSession.StateMachine.EnterNewState(gameSession);
+                gameSession.CurrentGameState = State.MENU;
+                IsStartMenu = false;
+            }
+            else
+            {
+                gameSession.CurrentGameState = State.LOADING;
+            }
+            while (gameSession.CurrentGameState != State.QUIT)
+            {
+                gameSession.StateMachine.RunState(gameSession);
             }
         }
     }

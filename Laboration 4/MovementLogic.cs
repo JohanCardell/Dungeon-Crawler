@@ -5,43 +5,46 @@ namespace Laboration_4
 {
     static class MovementLogic
     {
-        public static TargetPosition GetTargetPosition(GameAsset intruderGameAsset)
+        public static TargetPosition GetTargetPosition(GameAsset intruderGameAsset, HotKey direction)
         {
-            DirectionKey directionKey = PlayerInput.Direction();
             TargetPosition targetPosition = new TargetPosition(0, 0);
 
-            switch (directionKey)
+            switch (direction)
             {
-                case DirectionKey.Up:
+                case HotKey.UP:
                     targetPosition.PositionX = intruderGameAsset.PositionX;
                     targetPosition.PositionY = intruderGameAsset.PositionY - 1;
                     break;
-                case DirectionKey.Down:
+                case HotKey.DOWN:
                     targetPosition.PositionX = intruderGameAsset.PositionX;
                     targetPosition.PositionY = intruderGameAsset.PositionY + 1;
                     break;
-                case DirectionKey.Left:
+                case HotKey.LEFT:
                     targetPosition.PositionX = intruderGameAsset.PositionX - 1;
                     targetPosition.PositionY = intruderGameAsset.PositionY;
                     break;
-                case DirectionKey.Right:
+                case HotKey.RIGHT:
                     targetPosition.PositionX = intruderGameAsset.PositionX + 1;
                     targetPosition.PositionY = intruderGameAsset.PositionY;
                     break;
-                case DirectionKey.NoDirection:
+                case HotKey.NONE:
                     break;
             }
             return targetPosition;
         }
         public static void InteractWithTarget(TargetPosition targetPosition, GameSession gameSession)
         {
-            Player player = gameSession.GetPlayer();
             foreach (GameAsset gameAsset in gameSession.CurrentGameAssets)
                 if (gameAsset.PositionX == targetPosition.PositionX && gameAsset.PositionY == targetPosition.PositionY)
                 {
+                    if (gameAsset.MapRepresentation == 'E')
+                    {
+                        gameSession.Win = true;
+                        gameSession.CurrentGameState = State.GAMEOVER; //PLAYER FOUND EXIT
+                    }
                     if (gameAsset is IInteractable interactable)
                     {
-                        interactable.Interact(player);
+                        interactable.Interact(gameSession.Player);
                     }
                 }
         }
@@ -61,8 +64,9 @@ namespace Laboration_4
                     gameSession.CurrentGameAssets.Add(new Floor(intruderGameAsset.PositionX, intruderGameAsset.PositionY));
                     // Move player/monster to the target tile
                     intruderGameAsset.PositionX = targetPosition.PositionX;
-
                     intruderGameAsset.PositionY = targetPosition.PositionY;
+                    gameSession.CurrentMoves += 1;
+                    gameSession.Score -= 1;
                     break;
                 }
 

@@ -14,14 +14,11 @@ namespace Laboration_4
 
         public void Interact(Player player)
         {
-            GameSession gameSession = new GameSession();
+            GameSession gameSession = GameSession.Instance;
             const int treasureValue = 10;
             Random random = new Random();
             int diceroll = random.Next(1, 10);
-
-
-
-
+                                 
             if (diceroll <= 5)
             {
                 gameSession.Score+=treasureValue;
