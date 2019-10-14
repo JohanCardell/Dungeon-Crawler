@@ -45,5 +45,6 @@ namespace Laboration_4
             set => instance = value;
         }
 
+        public string InteractableMessage { get; internal set; }
     }
 }

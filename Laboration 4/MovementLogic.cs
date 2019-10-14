@@ -44,7 +44,7 @@ namespace Laboration_4
                     }
                     if (gameAsset is IInteractable interactable)
                     {
-                        interactable.Interact(gameSession.Player);
+                        gameSession.InteractableMessage = interactable.Interact(gameSession.Player);
                     }
                 }
         }
