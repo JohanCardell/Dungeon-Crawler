@@ -1,19 +1,20 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-
-namespace Laboration_4
+﻿namespace Laboration_4
 {
     public class Player : GameAsset
     {
         public Inventory inventory = new Inventory();
-        private int healthPoints;
+        private const int maxHealthPoints = 1000;
+        private int currentHealthPoints;
         private Color swordType;
-        
-        
-        public int HealthPoints
+
+        public int MaxHealthPoints
         {
-            get => healthPoints;
-            set => healthPoints = value;
+            get => maxHealthPoints;
+        }
+        public int CurrentHealthPoints
+        {
+            get => currentHealthPoints;
+            set => currentHealthPoints = value;
         }
         public int DamageOutput { get; internal set; }
         public int CurrentHealthPoints { get; internal set; }
@@ -27,7 +28,7 @@ namespace Laboration_4
         public Player(uint positionX, uint positionY)
              : this(positionX, positionY, false, true, '§', Color.RED)
         {
-            HealthPoints = 1000;
+            CurrentHealthPoints = 1000;
             AssetColor = Color.BRONZE;
         }
         public Player(uint positionX, uint positionY, bool isPassable, bool isVisible, char mapRepresentation, Color color)

@@ -11,6 +11,10 @@ namespace Laboration_4
         private uint numberOfHealthPotions;
         private Color sword;
         public List<Loot> keys = new List<Loot>();
+        public List<HealthPotion> potions = new List<HealthPotion>();
+        public List<Sword> swords = new List<Sword>();
+        
+      
         #region Getters and setters
         public uint NumberOfBronzeKeys
         {

@@ -20,7 +20,7 @@ namespace Laboration_4
                 TargetPosition targetPosition = MovementLogic.GetTargetPosition(gameSession.GetPlayer());
                 MovementLogic.InteractWithTarget(targetPosition, gameSession);
                 MovementLogic.Move(player, targetPosition, gameSession);
-                if (player.HealthPoints <= 0) gameSession.GameOver = true;
+                if (player.CurrentHealthPoints <= 0) gameSession.GameOver = true;
             }
         }
     }

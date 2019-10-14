@@ -36,10 +36,10 @@ namespace Laboration_4
             while (this.HealthPoints > 0 && inCombat == true)
             {
                 this.HealthPoints -= this.HealthPoints - player.DamageOutput + rng.Next(0, 6);
-                player.HealthPoints -= this.DamageOutput + rng.Next(0, 6);
+                player.CurrentHealthPoints -= this.DamageOutput + rng.Next(0, 6);
                 Console.Clear();
                 //TODO Skriv ut meddelande om skadan och visa på något sätt i GUI
-                if (player.HealthPoints <= 0 || this.HealthPoints <= 0) inCombat = false;
+                if (player.CurrentHealthPoints <= 0 || this.HealthPoints <= 0) inCombat = false;
             }
             this.IsPassable = true;
         }

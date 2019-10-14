@@ -6,6 +6,7 @@ namespace Laboration_4
     {
         public int MaxMapRows { get; set; }
         public int MaxMapColumns { get; set; }
+        public int Score { get; set; } = 1000;
         public char[,] CurrentGameWorld { get; set; }
         public List<GameAsset> CurrentGameAssets { get; set; }
         public bool GameOver { get; set; }
