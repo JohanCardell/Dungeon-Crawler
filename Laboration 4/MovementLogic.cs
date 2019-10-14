@@ -5,29 +5,29 @@ namespace Laboration_4
 {
     static class MovementLogic
     {
-        public static TargetPosition GetTargetPosition(GameAsset intruderGameAsset, HotKey direction)
+        public static TargetPosition GetTargetPosition(GameAsset intruderGameAsset, Input direction)
         {
             TargetPosition targetPosition = new TargetPosition(0, 0);
 
             switch (direction)
             {
-                case HotKey.UP:
+                case Input.UP:
                     targetPosition.PositionX = intruderGameAsset.PositionX;
                     targetPosition.PositionY = intruderGameAsset.PositionY - 1;
                     break;
-                case HotKey.DOWN:
+                case Input.DOWN:
                     targetPosition.PositionX = intruderGameAsset.PositionX;
                     targetPosition.PositionY = intruderGameAsset.PositionY + 1;
                     break;
-                case HotKey.LEFT:
+                case Input.LEFT:
                     targetPosition.PositionX = intruderGameAsset.PositionX - 1;
                     targetPosition.PositionY = intruderGameAsset.PositionY;
                     break;
-                case HotKey.RIGHT:
+                case Input.RIGHT:
                     targetPosition.PositionX = intruderGameAsset.PositionX + 1;
                     targetPosition.PositionY = intruderGameAsset.PositionY;
                     break;
-                case HotKey.NONE:
+                case Input.NONE:
                     break;
             }
             return targetPosition;

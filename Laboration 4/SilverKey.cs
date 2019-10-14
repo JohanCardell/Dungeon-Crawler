@@ -2,10 +2,10 @@
 {
     class SilverKey : Loot, IInteractable
     {
-        public SilverKey(uint positionX, uint positionY)
+        public SilverKey(int positionX, int positionY)
         : this(positionX, positionY, false, false, 'F', Color.SILVER) { }//Game World symbol: 's'
 
-        public SilverKey(uint positionX, uint positionY, bool isPassable, bool isVisible, char mapRepresentation, Color color)
+        public SilverKey(int positionX, int positionY, bool isPassable, bool isVisible, char mapRepresentation, Color color)
         : base(positionX, positionY, isPassable, isVisible, mapRepresentation, color) { }
 
         public string Interact(Player player)

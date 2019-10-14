@@ -2,9 +2,9 @@
 {
     class Door : GameObject, IInteractable
     {
-        public Door(uint positionX, uint positionY, Color color)
+        public Door(int positionX, int positionY, Color color)
             : this(positionX, positionY, false, false, 'D', color) { }
-        public Door(uint positionX, uint positionY, bool isPassable, bool isVisible, char mapRepresentation, Color color)
+        public Door(int positionX, int positionY, bool isPassable, bool isVisible, char mapRepresentation, Color color)
             : base(positionX, positionY, isPassable, isVisible, mapRepresentation, color) { }
         public string Interact(Player player)
         {

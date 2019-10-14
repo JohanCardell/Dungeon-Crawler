@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Laboration_4
+﻿namespace Laboration_4
 {
     public abstract class GameAsset
     {
         private Color assetColor;
-        private uint positionX;
-        private uint positionY;
+        private int positionX;
+        private int positionY;
         private char mapRepresentation;
         private bool isPassable;
         private bool isVisible;
@@ -20,12 +14,12 @@ namespace Laboration_4
             get => assetColor;
             set => assetColor = value;
         }
-        public uint PositionX
+        public int PositionX
         {
             get => positionX;
             set => positionX = value;
         }
-        public uint PositionY
+        public int PositionY
         {
             get => positionY;
             set => positionY = value;
@@ -45,7 +39,7 @@ namespace Laboration_4
             get => isVisible;
             set => isVisible = value;
         }
-        protected GameAsset(uint positionX, uint positionY, bool isPassable, bool isVisible, char mapRepresentation, Color color)
+        protected GameAsset(int positionX, int positionY, bool isPassable, bool isVisible, char mapRepresentation, Color color)
         {
             AssetColor = color;
             PositionX = positionX;

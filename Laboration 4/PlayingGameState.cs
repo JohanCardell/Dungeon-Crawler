@@ -9,11 +9,15 @@ namespace Laboration_4
         public override void Start(GameSession gameSession)
         {
             {
-                Console.Clear();
-                Rendering.Level(gameSession);
+                if (gameSession.LevelIsRendered == false)
+                {
+                    Rendering.Level(gameSession);
+                    Rendering.SideMenu();
+                }
                 Rendering.PlayerInfoBar(gameSession);
                 Rendering.PrintInteractableMessage(gameSession);
-                PlayerAction.PerformAction(PlayerAction.PlayerInput(), gameSession);
+                PlayerAction.PerformAction(PlayerAction.GetInput(), gameSession);
+                Rendering.Refresh(gameSession);
                 if (gameSession.Player.CurrentHealthPoints <= 0)
                 {
                     gameSession.Win = false;

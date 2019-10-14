@@ -25,7 +25,8 @@ namespace Laboration_4
             Console.WriteLine("Press any key to go back to the main menu");
             Console.ReadKey(true);
             gameSession.CurrentGameState = State.MENU;
-            LoadingGameState.IsLoaded = false;
+            gameSession.LevelIsRendered = false;
+            GameSession.Instance = null;
         }
     }
 }

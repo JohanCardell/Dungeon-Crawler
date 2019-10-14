@@ -10,11 +10,10 @@ namespace Laboration_4
     {
         public static void Level(GameSession gameSession)
         {
-            RemoveFogOfWar(gameSession);
             List<GameAsset> gameAssets = gameSession.CurrentGameAssets;
-            for (uint row = 0; row < gameSession.MaxMapRows; row++)
+            for (int row = 0; row < gameSession.MaxMapRows; row++)
             {
-                for (uint column = 0; column < gameSession.MaxMapColumns; column++)
+                for (int column = 0; column < gameSession.MaxMapColumns; column++)
                 {
                     foreach (GameAsset asset in gameAssets)
                     {
@@ -57,32 +56,83 @@ namespace Laboration_4
                 }
                 Console.WriteLine();
             }
+            Console.WindowTop = 0;
+            gameSession.LevelIsRendered = true;
         }
 
-        public static void PrintInteractableMessage(GameSession gameSession)
+        public static void Refresh(GameSession gameSession)
         {
-            Console.WriteLine(gameSession.InteractableMessage);
-            gameSession.InteractableMessage = "";
-        }
-
-        static void RemoveFogOfWar(GameSession gameSession)
-        {
-            foreach (GameAsset element in gameSession.CurrentGameAssets)
+            foreach (GameAsset gameAsset in gameSession.CurrentGameAssets)
             {
                 for (int row = -1; row < 2; row++)
                 {
                     for (int column = -1; column < 2; column++)
                     {
-                        if (gameSession.Player.PositionX == element.PositionX + column && gameSession.Player.PositionY == element.PositionY + row)
+                        if (gameSession.Player.PositionX == gameAsset.PositionX + column && gameSession.Player.PositionY == gameAsset.PositionY + row)
                         {
-                            element.IsVisible = true;
+                            gameAsset.IsVisible = true;
+                            Console.SetCursorPosition(gameAsset.PositionX, gameAsset.PositionY);
+                            switch (gameAsset.AssetColor)
+                            {
+                                case Color.NONE:
+                                    break;
+                                case Color.BRONZE:
+                                    Console.ForegroundColor = ConsoleColor.DarkYellow;
+                                    break;
+                                case Color.SILVER:
+                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                    break;
+                                case Color.GOLD:
+                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                    break;
+                                case Color.GREY:
+                                    Console.ForegroundColor = ConsoleColor.Gray;
+                                    break;
+                                case Color.RED:
+                                    Console.ForegroundColor = ConsoleColor.Red;
+                                    break;
+                                case Color.GREEN:
+                                    Console.ForegroundColor = ConsoleColor.Green;
+                                    break;
+                            }
+                            Console.Write(gameAsset.MapRepresentation);
+                            Console.ResetColor();
                         }
                     }
                 }
             }
         }
+        public static void SideMenu()
+        {
+            List<String> sideMenu = new List<String>
+            {
+                "WASD or arrows",
+                "to move",
+                " ",
+                "Press M",
+                "to enter Menu",
+                " ",
+                "Press P",
+                "to drink Potion",
+                " ",
+                "§ = you",
+                "C = chest",
+                "D = door",
+                "E = exit",
+                "M = monster"
+            };
+            int startLine = 5;
+            foreach (String line in sideMenu)
+            {
+                Console.SetCursorPosition(105, startLine);
+                Console.Write(line);
+                startLine++;
+            }
+        }
         public static void PlayerInfoBar(GameSession gameSession)
         {
+            ClearCurrentConsoleLine(25);
+            Console.SetCursorPosition(0, 25);
             Player player = gameSession.Player;
             String playerHealth = player.CurrentHealthPoints + "/" + player.MaxHealthPoints;
             int numberOfPotions = player.inventory.potions.Count();
@@ -91,16 +141,17 @@ namespace Laboration_4
             int numberOfGoldKeys = player.inventory.keys.Count(Loot => Loot.AssetColor is Color.GOLD);
             Console.WriteLine("Health: {0}      Potions: {1}      Bronze Keys: {2}      Silver Keys: {3}      Gold Keys: {4}      Moves: {5}",
                                 playerHealth, numberOfPotions, numberOfBronzeKeys, numberOfSilverKeys, numberOfGoldKeys, gameSession.CurrentMoves) ;
-            Console.WriteLine("Directional Keys:    Use potion: P");
-            Console.WriteLine("  W");
-            Console.WriteLine("A   S");
-            Console.WriteLine("  D");
-            //Console.WriteLine("Up: W");
-            //Console.WriteLine("Down: S");
-            //Console.WriteLine("Left: A");
-            //Console.WriteLine("Right: D");
-           // Console.WriteLine("Use potion: P");
-            Console.WriteLine("Menu: M");
+        }
+        public static void PrintInteractableMessage(GameSession gameSession)
+        {
+            ClearCurrentConsoleLine(26);
+            Console.SetCursorPosition(0, 26);
+            Console.WriteLine(gameSession.InteractableMessage);
+        }
+        static void ClearCurrentConsoleLine(int line)
+        {
+            Console.SetCursorPosition(0, line);
+            Console.WriteLine(new string(' ', Console.WindowWidth));
         }
     }
 }

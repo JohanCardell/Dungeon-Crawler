@@ -4,6 +4,7 @@ namespace Laboration_4
 {
     public class GameSession
     {
+        public bool LevelIsRendered { get; set; }
         public bool Win { get; set; }
         public int CurrentMoves { get; set; }
         public int MaxMapRows { get; set; }

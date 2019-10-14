@@ -8,9 +8,9 @@ namespace Laboration_4
 {
     class Floor : GameAsset
     {
-        public Floor(uint positionX, uint positionY) 
+        public Floor(int positionX, int positionY) 
             :this(positionX, positionY, true, false, ' ', Color.NONE) {}
-        public Floor(uint positionX, uint positionY, bool isPassable, bool isVisible, char mapRepresentation, Color color) 
+        public Floor(int positionX, int positionY, bool isPassable, bool isVisible, char mapRepresentation, Color color) 
             : base(positionX, positionY, isPassable, isVisible, mapRepresentation, color) { }
     }
 }

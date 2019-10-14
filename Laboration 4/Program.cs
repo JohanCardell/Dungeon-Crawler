@@ -14,6 +14,7 @@ namespace Laboration_4
         public static bool IsStartMenu = true;
         public static void Main()
         {
+            Console.CursorVisible = false;
             GameSession gameSession = GameSession.Instance;
             gameSession.StateMachine = new StateMachine();
             gameSession.StateMachine.states = new List<GameState>

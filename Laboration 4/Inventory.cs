@@ -5,26 +5,26 @@ namespace Laboration_4
 
     public class Inventory
     {
-        private uint numberOfBronzeKeys;
-        private uint numberOfSilverKeys;
-        private uint numberOfGoldKeys;
-        private uint numberOfHealthPotions;
+        private int numberOfBronzeKeys;
+        private int numberOfSilverKeys;
+        private int numberOfGoldKeys;
+        private int numberOfHealthPotions;
         private Color sword;
         public List<Loot> keys = new List<Loot>();
         public List<HealthPotion> potions = new List<HealthPotion>();
         public List<Sword> swords = new List<Sword>();
         #region Getters and setters
-        public uint NumberOfBronzeKeys
+        public int NumberOfBronzeKeys
         {
             get => numberOfBronzeKeys;
             set => numberOfBronzeKeys = value;
         }
-        public uint NumberOfSilverKeys
+        public int NumberOfSilverKeys
         {
             get => numberOfSilverKeys;
             set => numberOfSilverKeys = value;
         }
-        public uint NumberOfGoldKeys
+        public int NumberOfGoldKeys
         {
             get => numberOfGoldKeys;
             set => numberOfGoldKeys = value;
@@ -34,7 +34,7 @@ namespace Laboration_4
             get => sword;
             set => sword = value;
         }
-        public uint NumberOfHealthPotions
+        public int NumberOfHealthPotions
         {
             get => numberOfHealthPotions;
             set => numberOfHealthPotions = value;
