@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 
+// Nils 1082
+
 namespace Laboration_4
 {
     public enum Color {NONE, BRONZE, SILVER, GOLD, GREY, GREEN, RED, DARKRED,CYAN }
