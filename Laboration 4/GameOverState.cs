@@ -9,7 +9,6 @@ namespace Laboration_4
     class GameOverState : GameState
     {
         public GameOverState(GameSession gameSession) : base(gameSession) { }
-        
         public override void Start(GameSession gameSession)
         {
             Console.Clear();

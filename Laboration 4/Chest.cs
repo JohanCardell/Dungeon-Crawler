@@ -14,19 +14,18 @@ namespace Laboration_4
         public string Interact(Player player)
         {
             GameSession gameSession = GameSession.Instance;
-            //const int treasureValue = 10;
             Random random = new Random();
             int diceroll = random.Next(1, 10);
             string message = "You don't have a matching key.";
             foreach (var key in player.inventory.keys)
             {
-                void ChestReward(int diceScore,
-                    int diceLowHelthPotion,int diceHighHelthPotion,
-                    int diceLowSilverSword,int diceHighSilverSword,
-                    int tressureValue)
+                void ChestReward(int diceScore,//If random number is<=diceScore, player gets score.
+                    int diceLowHelthPotion,int diceHighHelthPotion,//If random number is<=diceLowHealthPotion and >=diceHighHealthPotion,player gets health potion. 
+                    int diceLowSilverSword,int diceHighSilverSword,//If random number is<=diceLowSilverSword and >=diceHighSilverSword,player gets a silver sword.If none of the above is true, a golden sword is rewarded.
+                    int tressureValue)//Determins the number of points player gets from the chest.
                 {
                     message = $"You opened a {this.AssetColor} chest, and a {key.AssetColor} key was removed from your inventory. ";
-                    player.inventory.keys.Remove(key);//use key
+                    player.inventory.keys.Remove(key);//Use key
                     if (diceroll <= diceScore)
                     {
                         gameSession.Score +=tressureValue;
@@ -50,37 +49,18 @@ namespace Laboration_4
                 }
                 if (key.AssetColor == this.AssetColor && this.AssetColor == Color.BRONZE)
                 {
-                    ChestReward(5,6,7,8,9,10);
-                    //message = $"You opened a {this.AssetColor} chest, and a {key.AssetColor} key was removed from your inventory. ";
-                    //player.inventory.keys.Remove(key);//use key
-                    //if (diceroll <= 5)
-                    //{
-                    //    gameSession.Score += treasureValue;
-                    //    message += $"Your score increased by {treasureValue}";
-                    //}
-                    //else if (diceroll >= 6 && diceroll <= 7)
-                    //{
-                    //    player.inventory.potions.Add(new HealthPotion());
-                    //    message += $"Your got a health potion.";
-                    //}
-                    //else if (diceroll >= 8 && diceroll <= 9)
-                    //{
-                    //    player.inventory.swords.Add(new Sword(Color.SILVER));
-                    //    message += $"Your current sword has been updated to a {this.AssetColor} sword.";
-                    //}
-                    //else
-                    //{
-                    //    player.inventory.swords.Add(new Sword(Color.GOLD));
-                    //    message += $"Your current sword has been updated to a {this.AssetColor} sword.";
-                    //}
+                    ChestReward(5, 6, 7, 8, 9, 100);
+                    this.IsPassable = true;
                 }
                 else if (key.AssetColor == this.AssetColor && this.AssetColor == Color.SILVER)
                 {
-                    ChestReward(3,4,6,7,8,25);
+                    ChestReward(3,4,6,7,8,250);
+                    this.IsPassable = true;
                 }
                 else if (key.AssetColor == this.AssetColor && this.AssetColor == Color.GOLD)
                 {
-                    ChestReward(2,3,5,6,8,50);
+                    ChestReward(2,3,5,6,8,500);
+                    this.IsPassable = true;
                 }
                 break;
             }

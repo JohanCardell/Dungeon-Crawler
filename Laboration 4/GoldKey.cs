@@ -2,8 +2,6 @@
 {
     class GoldKey : Loot, IInteractable
     {
-        public GoldKey(): 
-            this(0, 0, false, false, 'F', Color.GOLD) { }//Game World symbol: 'g'
         public GoldKey(int positionX, int positionY)
         : this(positionX, positionY, false, false, 'F', Color.GOLD) { }//Game World symbol: 'g'
 
