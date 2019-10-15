@@ -16,7 +16,6 @@ namespace Laboration_4
         private StateMachine stateMachine;
         private Player player;
         private string interactableMessage;
-        private bool hasHolyGrail;
         protected GameSession() { }
         private static GameSession instance = null;
         #region Getters and setters
@@ -91,11 +90,6 @@ namespace Laboration_4
         {
             get => interactableMessage;
             internal set=> interactableMessage = value;
-        }
-        public bool HasHolyGrail
-        {
-            get => hasHolyGrail;
-            set => hasHolyGrail = value;
         }
         #endregion
         public Player GetPlayerFromList()

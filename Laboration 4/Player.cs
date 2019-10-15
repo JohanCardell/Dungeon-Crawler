@@ -6,6 +6,8 @@
         private const int maxHealthPoints = 1000;
         private int currentHealthPoints;
         private int damageOutput;
+        internal bool hasTheHolyGrail;
+
         public int MaxHealthPoints
         {
             get => maxHealthPoints;
