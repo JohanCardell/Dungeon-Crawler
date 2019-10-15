@@ -34,7 +34,7 @@
                     messsage = $"You now have a {this.AssetColor} sword.";
                 }
                 break;
-        }
+            }
             return messsage;
         }
 

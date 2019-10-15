@@ -26,7 +26,7 @@ namespace Laboration_4
             }
             return message;
         }
-        string ChestReward (GameSession gameSession, Loot key, Color color)
+        string ChestReward(GameSession gameSession, Loot key, Color color)
         {
             //Baseline values
             int chanceAtTreasure = 5;
@@ -84,5 +84,5 @@ namespace Laboration_4
             }
             return message;
         }
-    }
+     }
 }

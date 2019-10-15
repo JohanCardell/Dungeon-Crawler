@@ -38,7 +38,7 @@ namespace Laboration_4
                 {
                     if (gameAsset.MapRepresentation == 'E') //Player found the Exit tile and wins the game
                     {
-                        if (gameSession.hasTheHolyGrail = false)
+                        if (gameSession.Player.hasTheHolyGrail == false)
                         {
                             System.Console.WriteLine("You need to find the Holy Grail before leaving");
                         }

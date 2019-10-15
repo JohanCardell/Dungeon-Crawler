@@ -5,7 +5,7 @@ namespace Laboration_4
     {
         public static string DrinkPotion(Player player)
         {
-            string message = "You have not potion";
+            string message = "You have no potion";
             foreach (HealthPotion potion in player.inventory.potions)
             {
                 if (player.MaxHealthPoints - player.CurrentHealthPoints > potion.PotionPotency)
