@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Laboration_4
 {
@@ -15,36 +13,14 @@ namespace Laboration_4
             {
                 for (int column = 0; column < gameSession.MaxMapColumns; column++)
                 {
-                    foreach (GameAsset asset in gameAssets)
+                    foreach (GameAsset gameAsset in gameAssets)
                     {
-                        if (asset.PositionX.Equals(column) && asset.PositionY.Equals(row))
+                        if (gameAsset.PositionX.Equals(column) && gameAsset.PositionY.Equals(row))
                         {
-                            if (asset.IsVisible)
+                            if (gameAsset.IsVisible)
                             {
-                                switch (asset.AssetColor)
-                                {
-                                    case Color.NONE:
-                                        break;
-                                    case Color.BRONZE:
-                                        Console.ForegroundColor = ConsoleColor.DarkYellow;
-                                        break;
-                                    case Color.SILVER:
-                                        Console.ForegroundColor = ConsoleColor.Cyan;
-                                        break;
-                                    case Color.GOLD:
-                                        Console.ForegroundColor = ConsoleColor.Yellow;
-                                        break;
-                                    case Color.GREY:
-                                        Console.ForegroundColor = ConsoleColor.Gray;
-                                        break;
-                                    case Color.RED:
-                                        Console.ForegroundColor = ConsoleColor.Red;
-                                        break;
-                                    case Color.GREEN:
-                                        Console.ForegroundColor = ConsoleColor.Green;
-                                        break;
-                                }
-                                Console.Write(asset.MapRepresentation);
+                                SetConsoleColor(gameAsset.AssetColor);
+                                Console.Write(gameAsset.MapRepresentation);
                                 Console.ResetColor();
                             }
                             else
@@ -56,10 +32,8 @@ namespace Laboration_4
                 }
                 Console.WriteLine();
             }
-            Console.WindowTop = 0;
             gameSession.LevelIsRendered = true;
         }
-
         public static void Refresh(GameSession gameSession)
         {
             foreach (GameAsset gameAsset in gameSession.CurrentGameAssets)
@@ -72,29 +46,7 @@ namespace Laboration_4
                         {
                             gameAsset.IsVisible = true;
                             Console.SetCursorPosition(gameAsset.PositionX, gameAsset.PositionY);
-                            switch (gameAsset.AssetColor)
-                            {
-                                case Color.NONE:
-                                    break;
-                                case Color.BRONZE:
-                                    Console.ForegroundColor = ConsoleColor.DarkYellow;
-                                    break;
-                                case Color.SILVER:
-                                    Console.ForegroundColor = ConsoleColor.Cyan;
-                                    break;
-                                case Color.GOLD:
-                                    Console.ForegroundColor = ConsoleColor.Yellow;
-                                    break;
-                                case Color.GREY:
-                                    Console.ForegroundColor = ConsoleColor.Gray;
-                                    break;
-                                case Color.RED:
-                                    Console.ForegroundColor = ConsoleColor.Red;
-                                    break;
-                                case Color.GREEN:
-                                    Console.ForegroundColor = ConsoleColor.Green;
-                                    break;
-                            }
+                            SetConsoleColor(gameAsset.AssetColor);
                             Console.Write(gameAsset.MapRepresentation);
                             Console.ResetColor();
                         }
@@ -152,6 +104,32 @@ namespace Laboration_4
         {
             Console.SetCursorPosition(0, line);
             Console.WriteLine(new string(' ', Console.WindowWidth));
+        }
+        static void SetConsoleColor(Color color)
+        {
+            switch (color)
+            {
+                case Color.NONE:
+                    break;
+                case Color.BRONZE:
+                    Console.ForegroundColor = ConsoleColor.DarkYellow;
+                    break;
+                case Color.SILVER:
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                    break;
+                case Color.GOLD:
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    break;
+                case Color.GREY:
+                    Console.ForegroundColor = ConsoleColor.Gray;
+                    break;
+                case Color.RED:
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    break;
+                case Color.GREEN:
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    break;
+            }
         }
     }
 }

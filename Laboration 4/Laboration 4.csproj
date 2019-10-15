@@ -49,7 +49,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GameAssetHandler.cs" />
     <Compile Include="Boundary.cs" />
     <Compile Include="Chest.cs" />
     <Compile Include="GameSession.cs" />
@@ -63,7 +62,6 @@
     <Compile Include="PlayingGameState.cs" />
     <Compile Include="GameAsset.cs" />
     <Compile Include="IInteractable.cs" />
-    <Compile Include="DungeonTile.cs" />
     <Compile Include="LoadingState.cs" />
     <Compile Include="GameWorld.cs" />
     <Compile Include="Rendering.cs" />

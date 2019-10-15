@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace Laboration_4
 {
@@ -11,13 +7,11 @@ namespace Laboration_4
         public LoadingGameState(GameSession gameSession): base(gameSession) { }
         public override void Start(GameSession gameSession)
         {
-            gameSession.CurrentGameWorld = GameWorld.initialGameWorld;
+            gameSession.CurrentGameWorld = GameWorld.initialGameWorld; //The game can include several maps or "Game Worlds"
             SetMapDimensions (gameSession);
-            gameSession.CurrentGameAssets = GenerateGameAssets(gameSession);
+            gameSession.CurrentGameAssets = GenerateGameAssets(gameSession); //Translates chars from the Game World 2d char array into objects; Game Assets
             gameSession.Player = gameSession.GetPlayerFromList();
-            //IsLoaded = true;
             gameSession.CurrentGameState = State.PLAYING;
-
         }
         public void SetMapDimensions(GameSession gameSession)
         {
@@ -39,8 +33,8 @@ namespace Laboration_4
                     else if (gameWorld[row, column] == ' ')
                     {
                         gameAssets.Add(new Floor(column, row));
-
-                    } else if (gameWorld[row, column] == 'E')
+                    }
+                    else if (gameWorld[row, column] == 'E')
                     {
                         gameAssets.Add(new Exit(column, row));
                     }
