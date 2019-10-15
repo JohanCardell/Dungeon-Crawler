@@ -41,10 +41,12 @@ namespace Laboration_4
                 if (AssetColor==Color.SILVER)
                 {
                     damageMultiplier = 2;
+                    break;
                 }
                 else if (AssetColor==Color.GOLD)
                 {
                     damageMultiplier = 4;
+                    break;
                 }
             }
             do
@@ -53,7 +55,7 @@ namespace Laboration_4
                 player.CurrentHealthPoints -= this.DamageOutput - rng.Next(1, 20);
                 numberOfMoves++;
             } while (this.HealthPoints > 0);
-            message = $"Swinging your sword wildy, you managed to kill the monster in {numberOfMoves} turns";
+            message = $"Swinging your sword wildy, you managed to kill the monster in {numberOfMoves} moves";
             this.IsPassable = true;
             return message;
         }

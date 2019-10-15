@@ -8,16 +8,17 @@ namespace Laboration_4
         public override void Start(GameSession gameSession)
         {
             Console.Clear();
-            Console.SetCursorPosition(60, 13);
+            Console.SetCursorPosition(58, 12);
             Console.WriteLine("The Dungeon");
             if (gameSession.LevelIsRendered == true) //Checks to see if the player already has an active game session
             {
                 Console.WriteLine("C)ontinue");
             }
-            Console.SetCursorPosition(60, 14);
+            Console.SetCursorPosition(58, 14);
             Console.WriteLine("N)ew Game");
-            Console.SetCursorPosition(60, 15);
+            Console.SetCursorPosition(58, 15);
             Console.WriteLine("Q)uit");
+            Console.CursorVisible = false;
             var userInput = Console.ReadKey(true);
             Console.Clear();
             switch (userInput.Key)
