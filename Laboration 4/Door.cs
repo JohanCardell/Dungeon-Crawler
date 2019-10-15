@@ -27,8 +27,8 @@
                                 this.IsPassable = true;
                                 player.inventory.keys.Remove(key);
                                 message = $"The {this.AssetColor} door has been opened and a {key.AssetColor} has been removed from your inventory.";
+                                break;
                             }
-                            break;
                         }
                     }
                 }
