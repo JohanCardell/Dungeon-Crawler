@@ -47,7 +47,6 @@ namespace Laboration_4
                     }
                 }
         }
-
         public static void Move(GameAsset intruderGameAsset, TargetPosition targetPosition, GameSession gameSession)
         //Allows a game asset (player, monster(not yet implemented) etc) to move
         {

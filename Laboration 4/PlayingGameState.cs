@@ -5,7 +5,6 @@ namespace Laboration_4
     class PlayingGameState:  GameState
     {
         public PlayingGameState(GameSession gameSession) : base(gameSession) { }
-
         public override void Start(GameSession gameSession)
         {
             {

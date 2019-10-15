@@ -10,6 +10,7 @@ namespace Laboration_4
     {
         private int healthPoints;
         private int damageOutput;
+        #region setters and getters
         public int HealthPoints
         {
             get => healthPoints;
@@ -20,6 +21,7 @@ namespace Laboration_4
             get => damageOutput;
             set => damageOutput = value;
         }
+        #endregion
         public Monster(int positionX, int positionY)
             : this(positionX, positionY, false, false, 'M', Color.GREEN)
         {
@@ -31,15 +33,27 @@ namespace Laboration_4
         public string Interact(Player player)
         {
             Random rng = new Random();
+            int damageMultiplier=1;
             string message = "";
-            int numberOfTurns = 0;
+            int numberOfMoves = 0;
+            foreach (var sword in player.inventory.swords)
+            {
+                if (AssetColor==Color.SILVER)
+                {
+                    damageMultiplier = 2;
+                }
+                else if (AssetColor==Color.GOLD)
+                {
+                    damageMultiplier = 4;
+                }
+            }
             do
             {
-                this.HealthPoints -= player.DamageOutput + rng.Next(1, 25);
+                this.HealthPoints -= (player.DamageOutput*damageMultiplier) + rng.Next(1, 25);
                 player.CurrentHealthPoints -= this.DamageOutput - rng.Next(1, 20);
-                numberOfTurns++;
+                numberOfMoves++;
             } while (this.HealthPoints > 0);
-            message = $"Swinging your sword wildy, you managed to kill the monster in {numberOfTurns} turns";
+            message = $"Swinging your sword wildy, you managed to kill the monster in {numberOfMoves} turns";
             this.IsPassable = true;
             return message;
         }

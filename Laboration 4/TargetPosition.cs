@@ -4,6 +4,7 @@
     {
         private int positionX;
         private int positionY;
+        #region getters and setters
         public int PositionX
         {
             get => positionX;
@@ -13,6 +14,7 @@
             get => positionY;
             set => positionY = value;
         }
+        #endregion
         public TargetPosition(int positionX, int positionY)
         {
             PositionX = positionX;

@@ -3,9 +3,7 @@
     public class StateMachine
     {
         public System.Collections.Generic.List< GameState> states;
-
         public StateMachine() { }
-
         public void RunState(GameSession gameSession)
         {
             switch (gameSession.CurrentGameState)
