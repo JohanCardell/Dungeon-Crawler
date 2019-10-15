@@ -10,6 +10,7 @@ namespace Laboration_4
         }
         public Chest(int positionX, int positionY, bool isPassable, bool isVisible, char mapRepresentation, Color color)
             : base(positionX, positionY, isPassable, isVisible, mapRepresentation, color) { }
+
         public string Interact(Player player)
         {
             GameSession gameSession = GameSession.Instance;
@@ -25,7 +26,7 @@ namespace Laboration_4
             }
             return message;
         }
-        string ChestReward(GameSession gameSession, Loot key, Color color)
+        string ChestReward (GameSession gameSession, Loot key, Color color)
         {
             //Baseline values
             int chanceAtTreasure = 5;
