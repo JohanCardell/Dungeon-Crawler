@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Laboration_4
 {
-    public enum Color {NONE, BRONZE, SILVER, GOLD, GREY, GREEN, RED, DARKRED }
+    public enum Color {NONE, BRONZE, SILVER, GOLD, GREY, GREEN, RED, DARKRED,CYAN }
     public enum State { MENU, LOADING, PLAYING, GAMEOVER, QUIT }
     public enum Input { NONE, UP, DOWN, LEFT, RIGHT, DRINKPOTION, MAINMENU }
     class Program
@@ -11,6 +11,7 @@ namespace Laboration_4
         public static bool IsStartMenu = true; 
         public static void Main()
         {
+            
             Console.SetWindowSize( 128, 28);
             GameSession gameSession = GameSession.Instance;
             gameSession.StateMachine = new StateMachine();

@@ -90,6 +90,10 @@ namespace Laboration_4
                     {
                         gameAssets.Add(new Player(column, row));
                     }
+                    else if (gameWorld[row, column] == 'H')
+                    {
+                        gameAssets.Add(new TheHolyGrail(column, row));
+                    }
                 }
             }
             return gameAssets;

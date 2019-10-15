@@ -80,6 +80,7 @@
     <Compile Include="StateMachine.cs" />
     <Compile Include="Sword.cs" />
     <Compile Include="TargetPosition.cs" />
+    <Compile Include="TheHolyGrail.cs" />
     <Compile Include="Wall.cs" />
   </ItemGroup>
   <ItemGroup>

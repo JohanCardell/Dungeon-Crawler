@@ -12,7 +12,7 @@ namespace Laboration_4
             {
                 Console.WriteLine("You found the the exit of the dungeon and make it out alive with all your loot! You've won!");
             }
-            else
+            else,,
             {
                 Console.WriteLine("Your greed for treasury finally cost you your life. You died!");
             }
