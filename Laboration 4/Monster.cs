@@ -33,12 +33,12 @@ namespace Laboration_4
             Random rng = new Random();
             string message = "";
             int numberOfTurns = 0;
-            while (this.HealthPoints > 0)
+            do
             {
-                this.HealthPoints -= this.HealthPoints - player.DamageOutput + rng.Next(1, 25);
-                player.CurrentHealthPoints -= this.DamageOutput + rng.Next(1, 20);
+                this.HealthPoints -= player.DamageOutput + rng.Next(1, 25);
+                player.CurrentHealthPoints -= this.DamageOutput - rng.Next(1, 20);
                 numberOfTurns++;
-            }
+            } while (this.HealthPoints > 0);
             message = $"Swinging your sword wildy, you managed to kill the monster in {numberOfTurns} turns";
             this.IsPassable = true;
             return message;

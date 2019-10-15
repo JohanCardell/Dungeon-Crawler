@@ -1,13 +1,11 @@
 ﻿using System;
-
 namespace Laboration_4
 {
-    public enum Input { NONE, UP, DOWN, LEFT, RIGHT, DRINKPOTION, MAINMENU}
     class PlayerAction
     {
         public static string DrinkPotion(Player player)
         {
-            string message = "";
+            string message = "You have not potion";
             foreach (HealthPotion potion in player.inventory.potions)
             {
                 if (player.MaxHealthPoints - player.CurrentHealthPoints > potion.PotionPotency)
@@ -24,7 +22,6 @@ namespace Laboration_4
             }
             return message;
         }
-
         public static Input GetInput()
         {
             while (true)
@@ -53,7 +50,6 @@ namespace Laboration_4
                 }
             }
         }
-
         public static void PerformAction(Input playerAction, GameSession gameSession)
         {
             switch (playerAction)

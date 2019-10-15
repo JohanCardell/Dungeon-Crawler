@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Laboration_4
 {
@@ -24,8 +20,8 @@ namespace Laboration_4
             Console.WriteLine("Press any key to go back to the main menu");
             Console.ReadKey(true);
             gameSession.CurrentGameState = State.MENU;
-            gameSession.LevelIsRendered = false;
-            GameSession.Instance = null;
+            gameSession.LevelIsRendered = false; //Makes sure the level will be rendered again
+            GameSession.Instance = null; //Deleting the current game session
         }
     }
 }

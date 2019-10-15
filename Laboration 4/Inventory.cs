@@ -5,9 +5,6 @@ namespace Laboration_4
 
     public class Inventory
     {
-        //private int numberOfSilverKeys;
-        //private int numberOfGoldKeys;
-        //private int numberOfHealthPotions;
         private Color sword;
         public List<Loot> keys = new List<Loot>();
         public List<HealthPotion> potions = new List<HealthPotion>();

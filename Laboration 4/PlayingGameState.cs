@@ -9,15 +9,17 @@ namespace Laboration_4
         public override void Start(GameSession gameSession)
         {
             {
-                if (gameSession.LevelIsRendered == false)
+                Console.CursorVisible = false;
+                if (gameSession.LevelIsRendered == false) //Renders the static map layout and side menu
                 {
                     Rendering.Level(gameSession);
                     Rendering.SideMenu();
+                    gameSession.LevelIsRendered = true;
                 }
-                Rendering.PlayerInfoBar(gameSession);
-                Rendering.PrintInteractableMessage(gameSession);
+                Rendering.Refresh(gameSession); //Refreshes a 3x3 box centered on the player
+                Rendering.PlayerInfoBar(gameSession); //Displays info about current health, keys and potions
+                Rendering.PrintInteractableMessage(gameSession);//Displays message from last interaction
                 PlayerAction.PerformAction(PlayerAction.GetInput(), gameSession);
-                Rendering.Refresh(gameSession);
                 if (gameSession.Player.CurrentHealthPoints <= 0)
                 {
                     gameSession.Win = false;

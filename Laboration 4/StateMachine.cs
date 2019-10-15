@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Laboration_4
+﻿namespace Laboration_4
 {
     public class StateMachine
     {
