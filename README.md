@@ -1,4 +1,4 @@
-# Laboration-4
+# Dungeon Crawler
 A simple console based dungeon crawler game
 
 A couple of bugs went through unnoticed during the final crunch before deadline.
